@@ -1,0 +1,91 @@
+.registWrap {
+  width: 96%;
+  overflow: hidden;
+  margin: 1.28617rem auto; }
+  .registWrap .input-control {
+    height: 1.36656rem;
+    margin: 0 auto;
+    background: #fff;
+    border-top: 1px solid #EEE6DB;
+    border-bottom: 1px solid #EEE6DB;
+    margin-bottom: 0.32154rem; }
+    .registWrap .input-control .control-title {
+      line-height: 1.36656rem;
+      width: 2.50804rem;
+      float: left;
+      text-align: center;
+      color: #444;
+      font-size: 0.48232rem; }
+      .registWrap .input-control .control-title .red-font {
+        color: red; }
+    .registWrap .input-control .ipt-item {
+      border: none;
+      float: left;
+      display: block;
+      height: 1.36656rem;
+      width: 5.01608rem;
+      margin-left: 0.16077rem;
+      font-size: 0.45016rem;
+      color: #000; }
+    .registWrap .input-control .get-vcode {
+      position: absolute;
+      width: 2.79743rem;
+      height: 0.93248rem;
+      border-radius: 0.16077rem;
+      background: #ccc;
+      color: #fff;
+      font-size: 0.38585rem;
+      text-align: center;
+      top: 0.22508rem;
+      right: 0.32154rem;
+      line-height: 0.93248rem; }
+      .registWrap .input-control .get-vcode.active {
+        background: #45B6FF; }
+    .registWrap .input-control .is-showpwd {
+      width: 0.64309rem;
+      height: 0.48232rem;
+      position: absolute;
+      text-align: center;
+      top: 0.45016rem;
+      right: 0.32154rem;
+      background: url(../images/reg_hide_pwd.png) no-repeat center;
+      background-size: 100% 100%; }
+      .registWrap .input-control .is-showpwd.showPwd {
+        background: url(../images/reg_show_pwd.png) no-repeat center;
+        background-size: 100% 100%; }
+
+.sel-tk {
+  margin-bottom: 0.32154rem;
+  font-size: 0.38585rem;
+  color: #888; }
+  .sel-tk .sel-icon {
+    height: 0.54662rem;
+    width: 0.54662rem;
+    margin-left: 0.16077rem;
+    background: url(../images/reg_sel_f.png) no-repeat center;
+    background-size: 100% 100%;
+    border-radius: 0.08039rem;
+    overflow: hidden;
+    margin-left: 0.32154rem;
+    margin-right: 0.16077rem; }
+  .sel-tk.seled .sel-icon {
+    height: 0.54662rem;
+    width: 0.54662rem;
+    margin-left: 0.32154rem;
+    margin-right: 0.16077rem;
+    background: url(../images/reg_sel_t.png) no-repeat center;
+    background-size: 100% 100%; }
+
+.reg-btn {
+  color: #9A0620;
+  width: 3.81029rem;
+  height: 1.07717rem;
+  line-height: 1.07717rem;
+  font-size: 0.45016rem;
+  margin: 0 auto;
+  margin-bottom: 0.32154rem;
+  border-radius: 0.16077rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.1);
+  background: url(../images/reg_byn_bg.png) no-repeat center;
+  background-size: 100% 100%; }

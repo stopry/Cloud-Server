@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <link rel="stylesheet" href="css/wepayui.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>扫码付款</title>
+</head>
+<!-- 
+	通用说明： 
+	1.模块的隐藏添加class:hide;
+	2.body标签默认绑定ontouchstart事件，激活所有按钮的:active效果
+-->
+<body ontouchstart class="weui-wepay-code-wrap">
+<div class="weui-wepay-code weui-wepay-code_logo">
+    <div class="weui-wepay-code__bd">
+        <p class="weui-wepay-code__logo">
+            <img src="img/wepay_logo_default_white_500x126.png" alt="" width="190" height="48;">
+        </p>
+        <div class="weui-wepay-code__main">
+            <div class="weui-wepay-code__img">
+                <!--        <img src="img/code.png" alt="" width="130" height="130" id="qrCode">-->
+                <div id="qrCode" style="width:130px;height: 130px"></div>
+            </div>
+            <h2 class="weui-wepay-code__subtitle">扫码付款</h2>
+        </div>
+    </div>
+    <div class="weui-wepay-code__ft">
+        <div class="weui-wepay-code__business">
+            <!--<div class="weui-wepay-code__business-logo">
+                <img src="img/logo_servives.jpg" alt="" width="200" height="28">
+            </div>-->
+            <div onclick="location.href='../main.html'"
+                 style="width: 80%; margin: 10px auto;font-weight:900;word-spacing:8px;color: #FFFFFF;line-height: 50px;font-size: 14px; height: 50px;background-color: #23AC38;border-radius: 5px;text-align: center">
+                支付完成
+            </div>
+            <p class="weui-wepay-code__business-info">海通国际云商城提供支持服务</p>
+        </div>
+
+    </div>
+    <div id="qrCodeStr" style="width:130px;height: 130px;display: none"></div>
+</div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.qrcode.min.js"></script>
+<script src="./../js/myModule.js"></script>
+<script src="./../js/global.js"></script>
+<script>
+    var qrCode = util.getQueryString("qrCode");
+    jQuery('#qrCodeStr').qrcode({
+        width: 120,
+        height: 120,
+        text: qrCode
+    });
+    var mycanvas1 = document.getElementsByTagName('canvas')[0];
+
+    //将转换后的img标签插入到html中
+
+    var img = convertCanvasToImage(mycanvas1);
+
+    $('#qrCode').append(img);//imagQrDiv表示你要插入的容器id
+
+
+    function convertCanvasToImage(canvas) {
+        //新Image对象，可以理解为DOM
+        var image = new Image();
+        // canvas.toDataURL 返回的是一串Base64编码的URL，当然,浏览器自己肯定支持
+        // 指定格式 PNG
+        image.src = canvas.toDataURL("image/png");
+        image.style.height = '100%'
+        image.style.width = '100%'
+        return image;
+    }
+</script>
+</body>
+</html>
+

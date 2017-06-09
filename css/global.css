@@ -1,0 +1,1387 @@
+@charset "UTF-8";
+/*公共变量*/
+html {
+    margin: 0 auto;
+}
+*{
+    max-width: 600px;
+}
+body {
+    background: #f2f2f2;
+    overflow-x: hidden;
+    min-width: 300px;
+}
+
+.per-top {
+    position: relative;
+    height: 3.25rem;
+    background: #ff490d;
+    box-sizing: border-box;
+}
+
+.per-top .top {
+    padding: 0.26563rem 0.26563rem 0.26563rem 0;
+    box-sizing: border-box;
+}
+
+.per-top .head {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 6px;
+    background: darkred;
+    overflow: hidden;
+}
+
+.per-top .head img {
+    width: 100%;
+    height: 100%;
+}
+
+.per-top .text p {
+    margin-left: 0.26563rem;
+    font-size: 0.4375rem;
+    font-family: "microsoft yahei";
+    color: #fff;
+    line-height: 0.70313rem;
+}
+
+.per-top .btn a {
+    display: block;
+    width: 2.10938rem;
+    height: 0.70313rem;
+    color: #fff;
+    text-align: center;
+    font-size: 0.4375rem;
+    line-height: 0.70313rem;
+    background: #2093ec;
+    font-family: "microsoft yahei";
+}
+
+.per-top .btn a:first-child {
+    margin-bottom: 0.26563rem;
+}
+
+.per-top .money {
+    position: absolute;
+    bottom: 0;
+    width: 4.96875rem;
+    height: 1rem;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.per-top .money.moneyRt {
+    left: 0;
+}
+
+.per-top .money.moneyLt {
+    right: 0;
+}
+
+.per-top .money p {
+    color: #fff;
+    line-height: 0.5rem;
+    font-size: 0.375rem;
+    font-family: "microsoft yahei";
+}
+
+.per-list {
+    border-top: 1px solid #bdbdbd;
+    border-bottom: 1px solid #bdbdbd;
+    background: #fff;
+}
+
+.per-list .list {
+    position: relative;
+    padding: 0.25rem;
+    color: #000;
+    font-size: 0.40625rem;
+    line-height: 0.71875rem;
+}
+
+.per-list .list i {
+    color: #6F6F6F;
+}
+
+.per-list .list:first-child:before {
+    height: 0;
+}
+
+.per-list .list:before {
+    position: absolute;
+    left: 0.28125rem;
+    right: 0;
+    top: 0;
+    width: 100%;
+    content: '';
+    height: 1px;
+    background: #bdbdbd;
+}
+
+.per-list .list p {
+    margin-left: 0.15625rem;
+    width: 7.96875rem;
+}
+
+.per-list .list:nth-child(2) .img {
+    background: #D83131;
+}
+
+.per-list .list:nth-child(3) .img {
+    background: #5592DD;
+}
+
+.per-list .img {
+    width: 0.71875rem;
+    height: 0.71875rem;
+    border-radius: 50%;
+    background: #55A7E0;
+    text-align: center;
+    line-height: 0.71875rem;
+    font-size: 0.5rem;
+    color: #fff;
+}
+
+.set-wart {
+    position: relative;
+    display: block;
+    background: #fff;
+    padding: 0.4375rem 0.625rem 0.4375rem 0.3125rem;
+    color: #828282;
+    box-sizing: border-box;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.set-wart h3 {
+    color: #000;
+    font-size: 0.375rem;
+}
+
+.set-wart p {
+    font-size: 0.28125rem;
+}
+
+.set-wart i.icon-right {
+    position: absolute;
+    right: 0.3125rem;
+    top: 0.625rem;
+    color: #999;
+}
+
+.inputControl {
+    width: 100%;
+    height: 1.125rem;
+    line-height: 1.125rem;
+    border-radius: 3px;
+    display: block;
+    font-size: 0.375rem;
+    text-indent: 0.3125rem;
+    color: #5a5a5a;
+    box-sizing: border-box;
+    border: 1px solid #BDBDBD;
+    background: #fff;
+}
+
+.submitBtn {
+    width: 100%;
+    height: 1.09375rem;
+    display: block;
+    text-align: center;
+    line-height: 1.09375rem;
+    color: #fff;
+    font-size: 0.4375rem;
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.submitBtn.active {
+    background: #2093EC;
+}
+
+.itemTitle {
+    width: 100%;
+    height: 1.09375rem;
+    text-indent: 0.1875rem;
+    text-align: left;
+    line-height: 1.09375rem;
+    color: #222222;
+    font-size: 0.4375rem;
+    background: #fff;
+}
+
+.itemTitle.tBor {
+    border-top: 1px solid #BDBDBD;
+}
+
+.changePwdWrap {
+    width: 8.8125rem;
+    margin: 0 auto;
+}
+
+.changePwdWrap .changePwdTitle {
+    font-size: 0.5rem;
+    text-align: center;
+    color: #5a5a5a;
+    margin: 0.9375rem auto 1.09375rem auto;
+}
+
+.changePwdWrap .cPwdIpt {
+    margin-bottom: 0.59375rem;
+}
+
+.changePwdWrap .submitChangePwd {
+    margin-top: 1.09375rem;
+}
+
+.per-list.recharge .list .img {
+    border-radius: 0;
+    background: none !important;
+}
+
+.per-list.recharge .list .img img {
+    width: 80%;
+    height: 80%;
+    margin-top: -0.15rem;
+}
+
+.per-list.recharge .list .checkBox {
+    height: 0.53125rem;
+    width: 0.53125rem;
+    display: block;
+    right: 0.3125rem;
+    top: 0.3125rem;
+    border: 1px solid #5a5a5a;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.per-list.recharge .list.chceked .checkBox {
+    background: url(../images/checked.png) no-repeat center;
+    background-size: 100% 100%;
+    border: none;
+}
+
+.ylPayInput {
+    margin-top: 0.54688rem;
+}
+
+.ylPayInput.hide {
+    display: none;
+}
+
+.ylPayInput .list .iptDesc {
+    width: 28%;
+    color: #5a5a5a;
+    font-size: 0.4375rem;
+}
+
+.ylPayInput .list .inputCtr {
+    border: none;
+    text-align: left;
+    width: 70%;
+}
+
+.rechageSub {
+    margin: 0 auto;
+    width: 9.40625rem;
+    margin-top: 0.59375rem;
+}
+
+.per-top.recharge {
+    background: #fff;
+    margin-bottom: 0.34375rem;
+    height: 1.94375rem;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.per-top.recharge .head img {
+    width: 100%;
+    height: 100%;
+}
+
+.per-top.recharge .text p {
+    color: #222222;
+    font-size: 0.4375rem;
+}
+
+.conBox {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #BDBDBD;
+    border-top: 1px solid #BDBDBD;
+    margin-bottom: 0.39063rem;
+}
+
+.selMoneyWrap {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+.selMoneyWrap .selItem {
+    float: left;
+    width: 2.15625rem;
+    height: 1rem;
+    box-sizing: border-box;
+    line-height: 1rem;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    font-size: 0.40625rem;
+    background: #fff;
+    color: #5a5a5a;
+    margin-left: 0.26563rem;
+    margin-bottom: 0.3125rem;
+}
+
+.selMoneyWrap .selItem.seled {
+    border-color: #2093EC;
+    background: #2093EC;
+    color: #fff;
+}
+
+.record {
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0.04688rem 0 0.00781rem;
+    word-wrap: break-word;
+}
+
+.record .record-table {
+    margin: 0.20313rem;
+    border-bottom: 1px solid #ebebeb;
+    color: #333;
+}
+
+.record .record-table td {
+    height: 0.71875rem;
+    color: #333333;
+    font: 0.375rem/0.4375rem "microsoft yahei";
+}
+
+.record .record-table .state {
+    width: 0.6875rem;
+    height: 0.71875rem;
+    line-height: 0.71875rem;
+    background: #1EB83F;
+    color: #fff;
+    font-size: 0.375rem;
+    text-align: center;
+    margin-top: 0.15625rem;
+    margin-bottom: 0.39063rem;
+}
+
+.record .record-table .money {
+    display: block;
+    margin: 0.15625rem;
+    height: 0.71875rem;
+    line-height: 0.71875rem;
+    color: #1EB83F;
+}
+
+.record .record-table .ypc {
+    margin-left: -0.3125rem;
+}
+
+.chain-money {
+    background: #fff;
+    border-bottom: 1px solid #c7c7c7;
+    padding: 0.28125rem;
+    box-sizing: border-box;
+    font-size: 0.34375rem;
+}
+
+.chain-money .chain-ul li {
+    display: block;
+    min-height: 0.59375rem;
+    padding: 0.15625rem 0;
+}
+
+.chain-money .chain-ul li .cz {
+    color: #333;
+}
+
+.chain-money .chain-ul li .ddh {
+    color: #000;
+}
+
+.chain-money .chain-ul li .time {
+    color: #6d6d6d;
+}
+
+.chain-money .block {
+    width: 2.8125rem;
+    height: 0.59375rem;
+    line-height: 0.59375rem;
+}
+
+.chain-money .block .mk1 {
+    background: #ed982b;
+    color: #fff;
+}
+
+.chain-money .block .mk2 {
+    border: 1px solid #4a4a4a;
+    color: #4a4a4a;
+    height: 0.5625rem;
+    line-height: 0.53125rem;
+}
+
+.chain-money .block-span {
+    margin-right: 0.10938rem;
+    display: block;
+    width: 0.59375rem;
+    height: 0.59375rem;
+    line-height: 0.59375rem;
+    text-align: center;
+    font-size: 0.375rem;
+}
+
+.per-top.cash .top .text p b.red {
+    color: #EA7503;
+}
+
+.ylPayInput.cashMoney {
+    margin-top: 0.3125rem;
+}
+
+.grayTips {
+    height: 1rem;
+    line-height: 1rem;
+    background: #EEEEEE;
+    text-align: left;
+    text-indent: 0.28125rem;
+    font-size: 0.3125rem;
+    color: #6F6F6F;
+}
+
+.cashForm .inputCtr i.icon-right {
+    float: right;
+    color: #6F6F6F;
+    right: 0;
+}
+
+.cashForm .list .inputCtr .bankWrap img {
+    height: 0.65625rem;
+    width: 0.65625rem;
+}
+
+.verMobile {
+    font-size: 0.4375rem;
+    background: #ddd;
+    height: 1.15625rem;
+    line-height: 1.15625rem;
+    text-indent: 0.3125rem;
+    color: #5a5a5a;
+}
+
+.verMobile span.priColor {
+    color: #2093EC;
+}
+
+.verMobile.verCode {
+    background: #fff;
+    box-sizing: border-box;
+    border-top: 1px solid #BDBDBD;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.verMobile.verCode .verCode {
+    width: 25%;
+}
+
+.verMobile.verCode .verCodeIpt {
+    width: 70%;
+    border: none;
+    height: 1.15625rem;
+    line-height: 1.15625rem;
+}
+
+.verMobile.verCode .getVerCode {
+    top: 0;
+    height: 1.15625rem;
+    border: none;
+    background: none;
+    color: #aaa;
+    right: 0.3125rem;
+}
+
+.verMobile.verCode .getVerCode.active {
+    color: #2093EC;
+}
+
+.indexPage {
+    margin-bottom: 0 !important;
+    position: relative;
+    border-bottom: none !important;
+}
+
+.tradBtnGro {
+    height: 0.61875rem;
+}
+
+.tradBtnGro .btnCtrl {
+    height: 0.61875rem;
+    width: 2.837rem;
+    line-height: 0.61875rem;
+    color: #fff;
+    text-align: center;
+    font-size: 0.315rem;
+    background: #2093EC;
+    display: block;
+    float: left;
+    margin-left: 0.25rem;
+    border-radius: 3px;
+    margin-top: 0.28125rem;
+}
+
+.proSel {
+    height: 1.2625rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #eee;
+    display: flex;
+}
+
+.proSel .proItem {
+    box-sizing: border-box;
+    flex: 1;
+    height: 1.2625rem;
+    color: #222222;
+    font-size: 0.35625rem;
+    text-align: left;
+    line-height: 1.2625rem;
+    text-indent: 0.3125rem;
+    background: #EFEFF4;
+    flex: 1;
+}
+
+.proSel .proItem.active {
+    background: #EEF7FE;
+    border-bottom: 2px solid #2093EC;
+}
+
+.proSel .proItem.active.up .proZS {
+    color: #E63234;
+}
+
+.proSel .proItem.active.down .proZS {
+    color: #1EB83F;
+}
+
+.proSel .proItem .proZS {
+    color: #626262;
+    font-size: 0.46875rem;
+    width: 60%;
+    float: left;
+}
+
+.proSel .proItem .proZS i {
+    font-size: 0.46875rem;
+}
+
+.proSel .proItem .proNmae {
+    width: 40%;
+    float: left;
+}
+
+.proInfo {
+    display: block;
+    overflow: hidden;
+}
+
+.proInfo .itmeDetail {
+    float: left;
+    width: 25%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.3125rem;
+    color: #6F6F6F;
+}
+
+.proInfo .itmeDetail .detail {
+    color: #222222;
+}
+
+#chart {
+    width: 100%;
+
+    background: #ccc;
+    height: 6.71875rem;
+}
+
+.chartSel {
+    width: 100%;
+    height: 0.8125rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #F3F3F3;
+}
+
+.chartSel .itme {
+    width: 25%;
+    float: left;
+    font-size: 0.315rem;
+    color: #5a5a5a;
+    text-align: center;
+    background: #F3F3F3;
+    line-height: 0.8125rem;
+}
+
+.chartSel .itme.seled {
+    background: #fff;
+    color: #2093EC;
+}
+
+.lookUpDown {
+    margin: 0 auto;
+    margin-top: 0.28125rem;
+    width: 9.6875rem;
+}
+
+.lookUpDown .lookBtn {
+    width: 4.38125rem;
+    height: 0.85625rem;
+    line-height: 0.85625rem;
+    color: #fff;
+    font-size: 0.317rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.lookUpDown .lookUpBtn {
+    float: left;
+    background: #E63234;
+    margin-left: 0.2rem;
+}
+
+.lookUpDown .lookDownBtn {
+    float: right;
+    background: #1EB83F;
+    margin-right: 0.2rem;
+}
+
+.indexTips {
+    color: #999;
+    font-size: 0.3125rem;
+    margin-top: 0.07813rem;
+}
+
+.smallTickets {
+    width: 100%;
+    color: #fff;
+    background: #272C35 url("../images/qm.png") no-repeat left;
+    background-size: auto 100%;
+    margin-top: 0.07815rem;
+}
+
+.botOprArea.lookUpWrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background: #F1F1F1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.botOprArea.lookUpWrap.lookDownWrap .title {
+    color: #1EB83F;
+}
+
+.botOprArea.lookUpWrap.lookDownWrap .numSel .addRedOpr .item.num {
+    color: #1EB83F;
+}
+
+.botOprArea.lookUpWrap.lookDownWrap .numSel .confirmBtn {
+    background: #1EB83F;
+}
+
+.botOprArea.lookUpWrap .title {
+    color: #E63234;
+    height: 1.15625rem;
+    line-height: 1.15625rem;
+    font-size: 0.5rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #BDBDBD;
+    background: none;
+}
+
+.botOprArea.lookUpWrap .title i {
+    font-size: 0.5rem;
+}
+
+.botOprArea.lookUpWrap .numSel {
+    height: 0.84375rem;
+    margin-top: 0.59375rem;
+    line-height: 0.84375rem;
+}
+
+.botOprArea.lookUpWrap .numSel .desc {
+    height: 0.84375rem;
+    color: #222222;
+    font-size: 0.375rem;
+    width: 2.1875rem;
+    margin-left: 0.3125rem;
+    text-align: left;
+}
+
+.botOprArea.lookUpWrap .numSel .selItem {
+    background: #fff;
+    width: 2.1875rem;
+    height: 0.84375rem;
+    border-radius: 3px;
+    margin-left: 0.21875rem;
+    color: #5a5a5a;
+    box-sizing: border-box;
+    border: 1px solid #BDBDBD;
+    font-size: 0.34375rem;
+}
+
+.botOprArea.lookUpWrap .numSel .selItem.seled {
+    border-color: #2093EC;
+    color: #2093EC;
+}
+
+.botOprArea.lookUpWrap .numSel .addRedOpr {
+    width: 2.90625rem;
+    height: 0.84375rem;
+    line-height: 0.84375rem;
+}
+
+.botOprArea.lookUpWrap .numSel .addRedOpr a.item {
+    border: 1px solid #BDBDBD;
+    color: #5a5a5a;
+    font-size: 0.34375rem;
+    background: #fff;
+    height: 0.84375rem;
+    border-radius: 3px;
+}
+
+.botOprArea.lookUpWrap .numSel .addRedOpr .item {
+    width: 33.333%;
+    box-sizing: border-box;
+}
+
+.botOprArea.lookUpWrap .numSel .addRedOpr .item.num {
+    color: #E63234;
+}
+
+.botOprArea.lookUpWrap .numSel .tips {
+    float: right;
+    margin-right: 0.375rem;
+    color: #999;
+    font-size: 0.375rem;
+    text-align: right;
+    line-height: 0.84375rem;
+}
+
+.numSel {
+    height: 1.0625rem !important;
+    line-height: 1.0625rem;
+    text-align: center;
+    font-size: 0.40625rem;
+}
+
+.numSel .oprBtn {
+    height: 1.0625rem;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 3px;
+    line-height: 1.0625rem;
+}
+
+.numSel .cancelBtn {
+    width: 3.59375rem;
+    background: #fff;
+    margin-left: 0.3125rem;
+    border: 1px solid #BDBDBD;
+}
+
+.numSel .confirmBtn {
+    margin-left: 0.3125rem;
+    background: #E63234;
+    color: #fff;
+    width: 5.53125rem;
+}
+
+.botTips {
+    color: #999;
+    font-size: 0.3125rem;
+    margin: 0.23438rem auto 0.46875rem auto;
+}
+
+.myCenterText {
+    left: 0;
+    bottom: 0;
+    height: 0.40625rem;
+    line-height: 0.40625rem;
+    font-size: 0.3125rem;
+    background: rgba(0, 0, 0, 0.618);
+}
+
+.alertLayer, .ajaxLayer {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.618);
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.ajaxLayer {
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.loadImgWrap {
+    height: 1.875rem;
+    width: 1.875rem;
+    border-radius: 0.15625rem;
+    background: rgba(0, 0, 0, 0.518);
+    margin: 0 auto;
+}
+
+.loadImgWrap img {
+    width: 0.625rem;
+    height: 0.625rem;
+    margin-top: 0.625rem;
+    margin-left: 0.625rem;
+}
+
+.botOprArea.hide, .pwdOvTmBox.hide {
+    transition: all ease 300ms;
+    transform: scale(0, 0);
+}
+
+.botOprArea, .pwdOvTmBox {
+    transition: all ease 300ms;
+    transform: scale(1, 1);
+}
+
+.pwdOvTmBox {
+    width: 8.03125rem;
+    position: fixed;
+    z-index: 12;
+    left: 0.98438rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 3px 3px rgba(255, 255, 255, 0.1);
+    background: #F0F0F0;
+}
+
+.pwdOvTmBox .selfTitle {
+    height: 1.125rem;
+    line-height: 1.125rem;
+    font-size: 0.375rem;
+    color: #5a5a5a;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.pwdOvTmBox .selfTitle i {
+    color: RED;
+}
+
+.pwdOvTmBox .formCtrl {
+    height: 1rem;
+    width: 6.4375rem;
+    margin: 0.53125rem auto;
+    line-height: 1rem;
+    border-radius: 3px;
+    display: block;
+}
+
+.pwdOvTmBox .inputPwd {
+    background: #fff;
+    font-size: 0.375rem;
+}
+
+.pwdOvTmBox .subBtn {
+    background: #2093EC;
+    font-size: 0.375rem;
+    border: none;
+    margin-bottom: 0;
+}
+
+.pwdOvTmBox .forgetPwd {
+    line-height: 1.09375rem;
+    width: 6.4375rem;
+    font-size: 0.34375rem;
+    margin: 0 auto;
+}
+
+.topAlert {
+    opacity: 0;
+    height: 40px;
+    line-height: 40px;
+    background: rgba(0, 0, 0, 0.518);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: -40px;
+    width: 100%;
+}
+
+.rechargeTips {
+    margin: 0 auto;
+    width: 9.4375rem;
+    margin-top: 0.3125rem;
+    font-size: 0.34375rem;
+}
+
+.rechargeTips.hide {
+    display: none;
+}
+
+.rechargeTips .redtips {
+    color: red;
+    text-align: left;
+}
+
+.rechargeTips .ckyh {
+    color: #2093EC;
+    text-align: right;
+}
+
+.provList {
+    transform: translateX(100%);
+}
+
+.provList.active {
+    transform: translateX(0);
+}
+
+.cityList {
+    transform: translateX(100%);
+}
+
+.cityList.active {
+    transform: translateX(0);
+}
+
+.bankList {
+    transform: translateX(100%);
+}
+
+.bankList.active {
+    transform: translateX(0);
+}
+
+.bankList .listItem img {
+    height: 18px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.areaList {
+    transition: all linear 300ms;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 13;
+    background: #fff;
+}
+
+.areaList .closeThis {
+    height: 40px;
+    line-height: 40px;
+    background: #2093EC;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.areaList .listDesc {
+    height: 40px;
+    line-height: 40px;
+    background: #eee;
+    color: #888;
+    font-size: 12px;
+    width: 100%;
+    text-indent: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+}
+
+.areaList .listWrap {
+    overflow: scroll;
+    padding-bottom: 100px;
+}
+
+.areaList .listWrap .listItem {
+    text-indent: 25px;
+    font-size: 14px;
+    color: #5a5a5a;
+    padding: 8px 0;
+}
+
+.areaList .listWrap .listItem .icon-right {
+    color: #ddd;
+    float: right;
+    margin-right: 0.46875rem;
+}
+
+.areaList .listWrap .listItem:before {
+    position: absolute;
+    left: 20px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    content: '';
+    height: 1px;
+    background: #eee;
+}
+
+.isUseTicket {
+    display: table;
+    margin-top: 0.4rem;
+    line-height: 0.72rem;
+    width: 94%;
+    margin: 0 auto;
+}
+
+.isUseTicket span {
+    line-height: 0.72rem;
+}
+
+.isUseTicket span.spanTitle {
+    font-size: 14px;
+    color: #222222;
+}
+
+.isUseTicket span.desc {
+    color: #999;
+    font-size: 12px;
+    margin-left: 10%;
+}
+
+.isUseTicket span.desc b {
+    color: #f94e4e !important;
+}
+
+.isUseTicket .useTicketSel {
+    height: 0.72rem;
+    border-radius: 0.36rem;
+    background: #bbb;
+    width: 12%;
+    transition: all linear 300ms;
+    -webkit-transition: all linear 300ms;
+}
+
+.isUseTicket .useTicketSel.seled {
+    background: #00a0e9;
+}
+
+.isUseTicket .useTicketSel .selicon {
+    background: #fff;
+    height: 0.72rem;
+    width: 0.72rem;
+    border-radius: 50%;
+    /*left: 0;*/
+    top: 0;
+    transition: all linear 300ms;
+    -webkit-transition: all linear 300ms;
+}
+
+.isUseTicket .useTicketSel.seled .selicon {
+    right: 0;
+    transition: all linear 300ms;
+    -webkit-transition: all linear 300ms;
+}
+
+.accountInfo {
+    display: flex;
+    margin-top: 0.3rem;
+}
+
+.accountInfo .moneyBag {
+    width: 55%;
+}
+.accountInfo .ticket{
+    width: 45%;
+}
+
+.accountInfo p {
+    text-indent: 1px;
+    vertical-align: middle;
+    line-height: 0.65rem;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.moneyBag img {
+    margin-top: -0.06rem;
+}
+
+.ticket img {
+    margin-top: -0.06rem;
+}
+
+.accountInfo img {
+    height: 0.65rem;
+}
+
+.accountInfoWrap {
+    width: 7.2rem;
+}
+
+#accountInfo {
+    width: 90%;
+    height: 0.7575rem;
+}
+
+#accountInfo .accountInfo {
+    margin-top: 0;
+}
+
+#accountInfo .per-top.recharge .text p {
+    font-size: 0.3125rem
+}
+
+.tradBtnGro a.btnCtrl {
+    margin-top: 0;
+}
+
+#accountInfo .accountInfo img {
+    height: 0.4375rem;
+}
+
+#accountInfo .accountInfo p {
+    font-size: 0.3125rem;
+    text-indent: 0;
+}
+
+.cashConfirmLayer {
+    transition: all linear 300ms;
+    width: 90%;
+    position: fixed;
+    z-index: 20;
+    left: 5%;
+    background: #eee;
+}
+
+.cashConfirmLayer.hide {
+    transform: scale(0, 0);
+    -webkit-transform: scale(0, 0);
+}
+
+.cashConfirmLayer .cashLayerTitle {
+    height: 1.25rem;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    line-height: 1.25rem;
+    font-size: 0.375rem;
+    color: #5a5a5a;
+}
+
+.cashConfirmLayer .cashLayerTitle i {
+    color: red;
+    font-size: 0.46875rem;
+}
+
+.cashConfirmLayer .cashLayerCon {
+    width: 94%;
+    margin: 0.46875rem auto;
+}
+
+.cashConfirmLayer .cashLayerCon .cashTable .leftTD {
+    background: #FEEDDC;
+    color: #5a5a5a;
+}
+
+.cashConfirmLayer .cashLayerCon .cashTable .rightTD {
+    color: #222222;
+    background: #fff;
+}
+
+.cashConfirmLayer .cashLayerCon .cashTable td {
+    padding: 0.15625rem;
+    text-align: center;
+    font-size: 0.34375rem;
+    border-bottom: 2px solid #eee;
+}
+
+.cashConfirmLayer .cashLayerCon .btnWrap {
+    width: 94%;
+    margin: 0.3125rem auto;
+    height: 0.9375rem;
+    line-height: 0.9375rem;
+}
+
+.cashConfirmLayer .cashLayerCon .btnWrap .cancelCash {
+    border-radius: 3px;
+    font-size: 0.375rem;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #777;
+    width: 35%;
+}
+
+.cashConfirmLayer .cashLayerCon .btnWrap .oklCash {
+    border-radius: 3px;
+    font-size: 0.375rem;
+    box-sizing: border-box;
+    background: #FE8C1E;
+    width: 60%;
+    color: #fff;
+}
+
+.rechageSub .submitBtn {
+    margin-bottom: 0.46875rem;
+}
+
+.xddjs {
+    height: 1.71875rem;
+    width: 1.71875rem;
+    top: 0.3125rem;
+    right: 0.3125rem;
+    border-left: 1px solid #eee;
+    background: #fff;
+    line-height: 0.78125rem;
+    font-size: 0.28125rem;
+}
+
+.xddjs.hide {
+    display: none;
+}
+
+.xddjs .countDown {
+    font-size: 0.375rem;
+    color: #E63234;
+}
+
+.xddjs .countDown img {
+    height: 0.46875rem;
+    margin-top: -0.07813rem;
+}
+
+.nowChiCang {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.nowChiCang.hide {
+    display: none;
+}
+
+.nowChiCang table {
+    width: 100%;
+}
+
+.nowChiCang table td {
+    width: 20%;
+    padding: 0.07813rem;
+    text-align: center;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    font-size: 0.3125rem;
+}
+
+.nowChiCang table td .type.down {
+    color: #fff;
+    background: #1EB83F;
+    border-radius: 3px;
+    padding: 0rem 0.125rem;
+}
+
+.nowChiCang table td .type.down.up {
+    background: #E63234;
+}
+
+.nowChiCang table td .t {
+    color: #555;
+}
+
+.nowChiCang table td .b {
+    color: #777;
+}
+
+.chain-ul {
+    border-bottom: 1px solid #eee;
+}
+
+.pullLoadTips {
+    height: 0.9375rem;
+    line-height: 0.9375rem;
+    background: #ddd;
+    color: #fff;
+    text-align: center;
+    font-size: 0.375rem;
+}
+
+.ajaxLayer {
+    background: transparent;
+    z-index: 200;
+}
+
+.decline.hide {
+    display: none;
+}
+
+.record .record-table .zhuan .state {
+    background: #E63234;
+}
+
+.record .record-table .zhuan .money {
+    color: #E63234;
+}
+
+.chain-money .block.hide {
+    display: none;
+}
+
+.chain-money .block .mk1.outmoney {
+    background: #6B75BF;
+}
+
+.zoomCtrlRedu, .zoomCtrlAdd {
+    height: 0.625rem;
+    width: 0.625rem;
+    background: red;
+    border-radius: 50%;
+    text-align: center;
+    background: #fff;
+    display: none;
+    float: right;
+    margin-right: 1.1rem;
+    margin-top: -0.2rem;
+}
+
+.changePwdWrap .forgetBindMobile {
+    background: none;
+}
+
+.changePwdWrap .verMobile.verCode {
+    border: 1px solid #BDBDBD;
+}
+
+.otherMoney {
+    background: #fff;
+    height: 1.09375rem; }
+.otherMoney .otherBtn {
+    width: 30%;
+    height: 100%;
+    font-size: 0.4375rem;
+    color: #2093EC;
+    line-height: 1.09375rem;
+    text-indent: 0.46875rem; }
+.otherMoney .otherNum {
+    width: 68%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #2093EC;
+    text-indent: 0.3125rem;
+    height: 1.09375rem;
+    color: #444;
+    font-size: 0.4375rem; }
+.otherMoney .otherNum.hide {
+    display: none; }

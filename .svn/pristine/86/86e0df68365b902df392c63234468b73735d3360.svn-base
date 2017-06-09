@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html style="background: #f8f8f8;">
+<head>
+    <meta charset=utf-8 />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--<meta http-equiv="Cache-Control" content="no-cache">-->
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <link rel="stylesheet" href="./css/resets.css">
+    <link rel="stylesheet" href="./css/zdialog.css">
+    <script type="text/javascript" src="./js/lib/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="./js/auth/auth.js"></script>-->
+    <title>港汇云端-输入推荐码</title>
+</head>
+<body style="background: #f8f8f8;" >
+
+<div class="Box" id="dd" style="height: 100%">
+    <div class="title2 w100 tc">欢迎来的海通汇金商城，请输入推荐码</div>
+    <div class="mobileWrap w100 ovhd">
+        <input type="text" class="msgCode disbl w100" placeholder="请输入推荐码">
+    </div>
+    <a href="javascript:void(0)" class="subBtn disbl w100 tc cl_w nor">确定</a>
+</div>
+
+<!--<script type="text/javascript" src="../../js/lib/jquery-weui/dist/lib/jquery-2.1.4.js"></script>-->
+<!--<script type="text/javascript" src="../../js/lib/jquery-weui/dist/js/jquery-weui.js"></script>-->
+<script src="./js/myModule.js"></script>
+<script src="./js/global.js"></script>
+<script type="text/javascript" src="./js/auth/checkTJCode.js?flag=20150517"></script>
+<script type="text/javascript" src="./js/auth/zdialog.js?flag=1"></script>
+</body>
+
+</html>
