@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提现</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <script src="./js/rem/flexible.css.js"></script>
+    <script src="./js/rem/flexible.ios.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_5sqpn13tj0885mi.css">
+    <link rel="stylesheet" href="./css/global.css">
+</head>
+<body style="overflow-x: hidden;">
+<div class="alertLayer"></div>
+<div class="ajaxLayer">
+    <div class="loadImgWrap">
+        <img src="./images/xl_load.gif" alt="">
+    </div>
+</div>
+<div class="per-top recharge cash">
+    <div class="top">
+        <div class="head bor_rau3 fl">
+            <img src="./images/header.jpg" alt="">
+        </div>
+        <div class="text fl">
+            <p>张三</p>
+            <p>可提现金额：<b class="red" id="ktxje">39.00</b>元</p>
+        </div>
+    </div>
+</div>
+<div class="per-list ylPayInput cashMoney">
+    <div class="list ks-clear">
+        <span class="iptDesc fl disbl">提现金额</span>
+        <input type="text" class="disbl ovhd inputCtr fr txjeIpt" placeholder="请输入提现金额">
+    </div>
+</div>
+<div class="grayTips">
+    手续费2元/笔
+</div>
+
+<div class="itemTitle tBor">提现方式</div>
+<div class="per-list recharge">
+    <div class="list ks-clear chceked">
+        <div class="img fl">
+            <img src="./images/ylpay.png" alt="">
+        </div>
+        <p class="fl textOverDot">银联支付</p>
+        <i class="poabl checkBox">
+
+        </i>
+    </div>
+</div>
+
+<div class="per-list ylPayInput cashForm ovhd">
+    <div class="list ks-clear feedBtn toSelBank">
+        <span class="iptDesc fl disbl">银行</span>
+        <div class="disbl ovhd inputCtr fr porel">
+            <div class="bankWrap fl">
+                <img src="./images/borderload.png" style="border: none" class="bankImg" alt="">
+                <span class="bankName"></span>
+            </div>
+            <i class="icon iconfont icon-right"></i>
+        </div>
+    </div>
+    <div class="list ks-clear toSelArea feedBtn">
+        <span class="iptDesc fl disbl">省份城市</span>
+        <div class="disbl ovhd inputCtr fr porel">
+            <div class="areaWrap fl">
+                <span class="provice"></span>
+                <span class="city"></span>
+            </div>
+            <i class="icon iconfont icon-right"></i>
+        </div>
+    </div>
+
+    <div class="list ks-clear">
+        <span class="iptDesc fl disbl textOverDot">卡号</span>
+        <input type="text" class="disbl ovhd inputCtr fr bankCardNum" placeholder="银行卡卡号">
+    </div>
+    <div class="list ks-clear">
+        <span class="iptDesc fl disbl textOverDot">持卡人姓名</span>
+        <input type="text" class="disbl ovhd inputCtr fr ckrNameIpt" placeholder="持卡人姓名">
+    </div>
+</div>
+<div class="verMobile">
+    已验证手机 <span class="priColor">138****8476</span>
+</div>
+<div class="verMobile verCode porel">
+    <span class="verCode disbl fl">验证码 </span>
+    <input type="text" class="verCodeIpt disbl fr" placeholder="请输入验证码">
+    <button class="getVerCode disbl poabl feedBtn active">
+        获取验码
+    </button>
+</div>
+<!--省份列表-->
+<div class="w100 ovhd h100 areaList provList">
+    <div class="w100 tl listDesc">
+        请选择银行卡开户地所属省份
+    </div>
+    <div class="listWrap h100 w100">
+        <li class="listItem porel feedBtn">
+            <span>安徽</span>
+            <i class="icon iconfont icon-right"></i>
+        </li>
+    </div>
+    <div class="closeThis w100 tc cl_w waves">
+        返回上一个页面
+    </div>
+</div>
+<!--城市列表-->
+<div class="w100 ovhd h100 areaList cityList">
+    <div class="w100 tl listDesc">
+        请选择银行卡开户地所属城市
+    </div>
+    <div class="listWrap h100 w100">
+        <li class="listItem porel feedBtn">
+            <span>淮南</span>
+            <i class="icon iconfont icon-right"></i>
+        </li>
+    </div>
+    <div class="closeThis w100 tc cl_w waves">
+        返回上一个页面
+    </div>
+</div>
+<!--银行列表-->
+<div class="w100 ovhd h100 areaList bankList">
+    <div class="w100 tl listDesc">
+        建议优先选择全国大型银行
+    </div>
+    <div class="listWrap h100 w100">
+        <li class="listItem porel feedBtn">
+            <img src="./images/wepay.png" alt=""><span>中国工商银行</span>
+            <i class="icon iconfont icon-right"></i>
+        </li>
+        <li class="listItem porel feedBtn">
+            <img src="./images/alipay.png" alt=""><span>中国建设银行</span>
+            <i class="icon iconfont icon-right"></i>
+        </li>
+    </div>
+    <div class="closeThis w100 tc cl_w waves">
+        返回上一个页面
+    </div>
+</div>
+
+<div class="rechageSub" style="padding-bottom: 30px">
+    <button class="submitBtn feedBtn waves active">
+        立即提现
+    </button>
+</div>
+<div style="display: none">
+    <select id="s_province" name="s_province"></select>
+    <select id="s_city" name="s_city" ></select>
+    <select id="s_county" name="s_county"></select>
+</div>
+
+<div class="cashConfirmLayer ovhd hide">
+    <div class="cashLayerTitle w100 tc">
+        <i class="icon iconfont icon-jilu"></i>请再次核对提现信息
+    </div>
+    <div class="cashLayerCon">
+        <table class="cashTable w100">
+            <tr>
+                <td class="leftTD">
+                    提现至
+                </td>
+                <td class="rightTD">
+                    <span class="bankName">中国工商银行</span>
+                    <span class="bankNum">6222021304005520759</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftTD">
+                    提现金额
+                </td>
+                <td class="rightTD">
+                    <span class="txje">3.00元</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftTD">
+                    实际到账金额
+                </td>
+                <td class="rightTD">
+                    <span class="dzje">1.00元</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftTD">
+                    手续费
+                </td>
+                <td class="rightTD">
+                    <span class="sxf">2.00元</span>
+                </td>
+            </tr>
+        </table>
+        <div class="btnWrap w100 ovhd">
+            <div class="cancelCash fl h100 tc feedBtn waves">
+                取消
+            </div>
+            <div class="oklCash fr h100 tc feedBtn waves">
+                确定
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/lib/jquery.min.js"></script>
+<script src="./js/plugin/area.js"></script>
+<script src="./js/myModule.js"></script>
+<script src="./js/global.js"></script>
+<script src="./js/cash.js"></script>
+</body>
+</html>

@@ -1,0 +1,616 @@
+/**
+ * Created by xiaobei on 2017/3/23.
+ */
+$(function () {
+    //获取用户基础数据
+    getBaseInfo();
+
+
+    function getBaseInfo() {
+        var openid = localStorage.getItem("WX_AUTH_OPENID");
+        if(openid == null || '' == openid){
+            _z.topAlert('请联系客服');
+            return;
+        }
+        ajax.get(api.baseInfo, {openid: openid}, function (datas) {
+            //console.log(datas);
+            if (datas.httpCode == 200) {
+                var data = datas.data;
+                localStorage.setItem("USER_MOBILE", data.mobile);
+            } else {
+                _z.topAlert(datas.msg);
+            }
+        })
+    }
+
+    var countDown = 30;//倒计时
+    var interval;
+    var enableCntPos = true;//是否可建仓
+    var residueCount = 30;
+    //首页全屏
+    function autoSize() {
+        var h = $(window).height();
+        $("#chart").height(parseInt(h) - parseInt($(".indexTop").height()) - parseInt($(".indexBot").height()));
+    }
+    autoSize();
+    $(window).resize(function(){
+        autoSize();
+    })
+
+    var _z = new _Z();
+    _z.verticalAlign(".ajaxLayer", ".loadImgWrap");
+    _z.absverticalAlign("body", ".pwdOvTmBox");
+
+    //图表类型
+    var chartType = 0;
+    //创建图表
+    var option = {};
+    var app = null;
+    $(window).resize(function () {
+        autoSize();
+        //页面resize后重新显示图表以保证页面内容始终是全屏
+        app = echarts.init(document.getElementById('chart'));//得到图表容器
+        app.showLoading();//显示加载动画
+        app.setOption(option);//图表容易设置配置并画图
+        app.hideLoading();//回执完毕隐藏加载动画
+    })
+    function createMyChart() {
+        app = echarts.init(document.getElementById('chart'));//得到图表容器
+        app.showLoading();//显示加载动画
+        app.setOption(option);//图表容器设置配置并画图
+        app.hideLoading();//回执完毕隐藏加载动画
+    };
+    //创建分时图
+    function creatF() {
+        option = {
+            title: {
+                show: false,
+            },
+            legend: {
+                show: false,
+            },
+            dataZoom: {
+                type: 'inside',
+                disabled: true,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    animation: false,
+                    lineStyle: {
+                        color: '#f94e4e',
+                        width: 1,
+                        opacity: 1
+                    }
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: ['80%', '80%'],
+                axisTick: {
+                    inside: true,
+                },
+                data: fdate,
+                axisLabel: {
+                    margin: 8,
+                    rotate: -15,
+                },
+                axisLine: {lineStyle: {color: '#aaa'}},//横坐标颜色
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: ['#f4f4f4'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                textStyle: {
+                    fontSize: 10
+                }
+            },
+            grid: {
+                //show:true,
+                x: '0.85%',
+                y: 5,
+                x2: '0.85%',
+                y2: 26,
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    axisTick: {
+                        inside: true,
+                    },
+                    axisLabel: {
+                        //rotate:30,
+                        margin: -38,
+                    },
+                    max: fmax,
+                    min: fmin,
+                    boundaryGap: ['', '100%'],
+                    axisLine: {lineStyle: {color: '#aaa'}},
+                    textStyle: {
+                        fontSize: 10,
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: ['#f4f4f4'],
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    //min: 3198,
+                    //max: 3214
+                },
+                {
+                    type: 'value',
+                    axisTick: {
+                        inside: true,
+                        show: false
+                    },
+                    axisLabel: {
+                        //rotate:30,
+                        margin: -38,
+                        formatter: '{value} %',
+                    },
+                    axisLine: {lineStyle: {color: '#aaa'}, show: false},
+                    textStyle: {
+                        fontSize: 10,
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: ['#f4f4f4'],
+                            width: 0,
+                            type: 'solid'
+                        }
+                    },
+                    min: 0,
+                    max: 10
+                }
+            ],
+            series: [
+                {
+                    name: '价格',
+                    type: 'line',
+                    smooth: true,
+                    symbol: 'none',
+
+                    sampling: 'average',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgb(0, 160, 233)'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgb(69, 190, 240)'
+                            }, {
+                                offset: 1,
+                                color: 'rgb(3, 136, 196)'
+                            }])
+                        }
+                    },
+                    data: fserdata
+                },
+                {
+                    show: false,
+                    type: 'line',
+                    data: [],
+                    yAxisIndex: 1,
+                },
+            ]
+        };
+        createMyChart()
+    }
+
+    //创建K线图
+    function creatK() {
+        option = {//图表配置
+            backgroundColor: '#fff',//图表背景色
+            legend: {//头部导航
+                show: false,
+                inactiveColor: '#777',
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            grid: {
+                //show:true,
+                x: '0.85%',
+                y: 5,
+                x2: '0.85%',
+                y2: 26,
+                //bottom:80
+            },
+            tooltip: {//鼠标经过垂直线
+                trigger: 'axis',
+                axisPointer: {
+                    animation: false,
+                    lineStyle: {
+                        color: '#f94e4e',
+                        width: 1,
+                        opacity: 1
+                    }
+                }
+            },
+            xAxis: {//横坐标
+                type: 'category',
+                data: kdates,
+                axisTick: {
+                    inside: true,
+                },
+                axisLabel: {
+                    margin: 8,
+                    rotate: -15,
+                },
+                splitLine: {//分割线
+                    show: true,
+                    lineStyle: {
+                        color: ['#f4f4f4'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                axisLine: {lineStyle: {color: '#aaa'}},
+                textStyle: {
+                    fontSize: 10
+                }
+            },
+            dataZoom: [{
+                top: "2%",
+                width: "50%",
+                right: "3%",
+                height: "20",
+                textStyle: {
+                    color: '#8392A5'
+                },
+                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                handleSize: '80%',
+                dataBackground: {
+                    areaStyle: {
+                        color: '#8392A5'
+                    },
+                    lineStyle: {
+                        opacity: 0.8,
+                        color: '#8392A5'
+                    }
+                },
+                handleStyle: {
+                    color: '#EEF7FE',
+                    shadowBlur: 3,
+                    shadowColor: 'rgba(0, 0, 0, .6)',
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 2
+                }
+            }, {
+                type: 'inside'
+            }],
+            yAxis: {//纵坐标
+                min: kmin,
+                max: kmax,
+                scale: true,
+                axisTick: {
+                    inside: true,
+                },
+                axisLabel: {
+                    //rotate:30,
+                    margin: -38,
+                },
+                axisLine: {lineStyle: {color: '#aaa'}},
+                splitLine: {//分割线
+                    show: true,
+                    lineStyle: {
+                        color: ['#f4f4f4'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                textStyle: {
+                    fontSize: 10
+                },
+            },
+            animation: true,//绘图的动画效果
+            series: [
+                {
+                    type: 'candlestick',//图表类型K线图
+                    name: '1',
+                    data: kdata,//浮动框中的数据
+                    itemStyle: {
+                        normal: {
+                            color: '#E63234',//涨线段颜色
+                            color0: '#1EB83F',//跌线段颜色
+                            borderColor: '#E63234',//涨线段背景色
+                            borderColor0: '#1EB83F'////跌线段背景色
+                        }
+                    }
+                },
+            ]
+        };
+        createMyChart();
+    }
+
+    //creatK();
+    //得到分时图数据
+    function getFdatas(type) {
+        ajax.get(api.timeline, {goodsType: type}, function (datas) {
+            console.log(datas);
+            if (datas.httpCode != 200) {
+                _z.topAlert(datas.msg);
+            }
+            var data = datas.data;
+            fdate = (data.map(function(item){
+                return item.qTime;
+            })).map(function(itemd){
+                return itemd.split(" ").join("\n")
+            });
+            fserdata = data.map(function(itemp){
+                return itemp.price;
+            });
+            fmin = Math.min.apply(null,fserdata)+2;
+            fmax = Math.max.apply(null,fserdata)+2;
+            console.log(fmin,fmax)
+            creatF();//创建分时图;
+        })
+    }
+
+    //得到k线图数据
+    function getKdatas(goodsType, chartType) {
+        ajax.get(api.kchart, {goodsType: goodsType, chartType: chartType}, function (datas) {
+            if (datas.httpCode != 200) {
+                _z.topAlert(datas.msg);
+            };
+            console.log(datas)
+            creatK();
+        })
+    }
+
+    //获取商品
+    function getProList() {
+        ajax.post(api.goods, null, function (datas) {
+            console.log(datas);
+            if (datas.httpCode != 200) {
+                _z.topAlert(datas.msg)
+            }
+            var data = datas.data;
+            oprDatas.proId = data[0].id;
+            getFdatas(data[0].id);//分时图
+            getTotalInfo(data[0].id);//昨收今开
+            var activeIndex = $(".proSel .proItem").hasClass("active");
+            var html = "";
+            for (var i = 0; i < data.length; i++) {
+                html +=
+                    '<div id="' + data[i].id + '" class="proItem ' + (data[0].upOrDown == 1 ? "up" : "down") + (activeIndex && i == 0 ? " active " : " ") + 'waves feedBtn">' +
+                    '<p class="proNmae">' + data[i].name + '</p>' +
+                    '<p class="proZS">' +
+                    '<span>' + data[i].point + '</span>' +
+                    '<i class="icon iconfont ' + (data[0].upOrDown == 1 ? "icon-yly_shangzhang" : "icon-up") + '"></i>' +
+                    '</p>' +
+                    '</div>'
+            }
+            ;
+            $(".proSel").html(html);
+        })
+    };
+    getProList();
+    //昨收今开信息
+    function getTotalInfo(type) {
+        ajax.get(api.totalInfo, {goodsType: type}, function (datas) {
+            //console.log(datas);
+            if (datas.httpCode != 200) {
+                _z.topAlert(datas.msg)
+            }
+            var data = datas.data.quotationInfo;
+            $(".detail.zs").html(data.yeClosePrice);
+            $(".detail.jk").html(data.toOpenPrice);
+            $(".detail.zg").html(data.highPrice);
+            $(".detail.zd").html(data.lowPrice);
+            var totalInfo = {
+                "yeClosePrice": data.yeClosePrice,
+                "toOpenPrice": data.toOpenPrice,
+                "highPrice": data.highPrice,
+                "lowPrice": data.lowPrice,
+            }
+        })
+    };
+    $(document).on("click", ".proSel .proItem", function () {
+        var id = $(this).attr("id");
+        oprDatas.proId = id;
+        $(this).addClass('active').siblings(".proItem").removeClass("active");
+        getTotalInfo(id);
+        if (chartType) {
+            getKdatas(oprDatas.proId, chartType);
+        } else {
+            getFdatas(oprDatas.proId);
+        }
+        console.log(id);
+    });
+    //图表类型选择
+    $(document).on("click", ".chartSel .itme", function () {
+        $(this).addClass("seled").siblings(".itme").removeClass("seled");
+        var type = $(this).data("type");
+        console.log(type);
+        chartType = type;
+        if (chartType) {
+            getKdatas(oprDatas.proId, chartType);
+        } else {
+            getFdatas(oprDatas.proId);
+        }
+    })
+    //操作区域数据
+    var oprDatas = {
+        proId: null,
+        pro: 1,//商品类型
+        type: 1,//类型-看涨
+        hydj: 10,//合约定金
+        zyzs: 5,//止盈止损
+        amount: 1,//数量
+        jyq: false,//是否使用交易券
+    }
+    getPositionList();
+    function setCountDown() {
+        enableCntPos = false;//不可建仓
+        interval = setInterval(function () {
+            countDown--;
+            $(".xddjs").show();
+            var int = countDown < 10 ? "0" + countDown : countDown;
+            residueCount = int;
+            $(".countDownNum").html("00:" + int);
+            if (countDown <= 0) {
+                clearInterval(interval);
+                enableCntPos = true;
+                $(".xddjs").hide();
+                countDown = 30;
+            }
+        }, 1000)
+    }
+
+    //setCountDown()
+    //确认建仓
+    function toOpen() {
+        //建仓数据
+        var openData = {
+            amount: oprDatas.amount,//数量
+            buySell: oprDatas.type,//买涨或买跌
+            depositType: oprDatas.jyq ? 1 : 0,//是否使用交易券
+            goodsCode: oprDatas.proId + oprDatas.hydj,//
+            goodsType: oprDatas.proId,
+            stopPoint: oprDatas.zyzs
+        }
+        console.log(oprDatas);
+        console.log(openData);
+        ajax.post(api.open, openData, function (datas) {
+            if (datas.httpCode == 200) {
+                setCountDown()
+                getPositionList();
+            } else {
+                _z.topAlert(datas.msg);
+            }
+        })
+    }
+
+    //获取当前持仓列表
+    function getPositionList() {
+        ajax.post(api.positionlist, {}, function (datas) {
+            if (datas.httpCode == 200) {
+                $(".nowChiCang").removeClass("hide");
+                $(window).resize();
+            } else {
+                _z.topAlert(datas.msg);
+            }
+        })
+    }
+
+    $(".numSel .confirmBtn").click(function () {
+        if (!enableCntPos) {
+            _z.topAlert("建仓时间间隔需大于30s,请" + residueCount + "s后再试");
+            return;
+        }
+        toOpen();
+    })
+    //重置购买弹窗数据
+    function resetbuyWid() {
+        oprDatas.hydj = 10;
+        oprDatas.zyzs = 5;
+        oprDatas.amount = 1;
+        oprDatas.jyq = false;
+        $(".addRedOpr .num").html(oprDatas.amount);
+        $(".useTicketSel").removeClass("seled");
+        $(".DJ .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+        $(".YS .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+    }
+
+    //显示购买弹窗 1看涨 2看跌
+    function showBuyWid(type) {
+        oprDatas.type = type;
+        resetbuyWid();
+        if (type == 1) {
+            $(".botOprArea").removeClass("lookDownWrap");
+            $(".botOprArea .title").html('<i class="icon iconfont icon-kanzhang"></i>看涨');
+        } else {
+            $(".botOprArea").addClass("lookDownWrap");
+            $(".botOprArea .title").html('<i class="icon iconfont icon-kanzhang icon-zhang"></i>看跌');
+        }
+        $(".botOprArea").removeClass("hide");
+    }
+
+    //隐藏底部操作弹窗
+    function hideBuyWid() {
+        $(".botOprArea").addClass("hide");
+    }
+
+    //看涨弹窗
+    $(".lookUpBtn").click(function () {
+        if (!sessionStorage.getItem("isVer")) {
+            showTradePwd();
+            return;
+        }
+        showBuyWid(1)
+    });
+    $(".lookDownBtn").click(function () {
+        if (!sessionStorage.getItem("isVer")) {
+            showTradePwd();
+            return;
+        }
+        showBuyWid(2)
+    });
+    //关闭购买操作层
+    $(".numSel .cancelBtn").click(function () {
+        hideBuyWid();
+    })
+    //合约定金选择
+    $(".DJ .selItem").click(function () {
+        $(this).addClass("seled").siblings(".selItem").removeClass("seled");
+        var _index = $(this).index();
+        var val = $(this).html().trim();
+        ;
+        if (val > 10) {
+            oprDatas.jyq = false;
+            $(".useTicketSel").removeClass("seled");
+        }
+        oprDatas.hydj = val;
+        console.log(_index, val);
+    })
+    //止盈止损选择
+    $(".YS .selItem").click(function () {
+        $(this).addClass("seled").siblings(".selItem").removeClass("seled");
+        var _index = $(this).index();
+        var val = $(this).html().trim();
+        if (val > 5) {
+            oprDatas.jyq = false;
+            $(".useTicketSel").removeClass("seled");
+        }
+        oprDatas.zyzs = val;
+        console.log(_index, val);
+    });
+    //数量选择
+    $(".addRedOpr .reduNum").click(function () {
+        if (oprDatas.amount <= 1) return;
+        oprDatas.amount -= 1;
+        console.log(oprDatas.amount)
+        $(".addRedOpr .num").html(oprDatas.amount);
+    })
+    $(".addRedOpr .addNum").click(function () {
+        if (oprDatas.amount >= 10) return;
+        oprDatas.amount += 1;
+        $(".addRedOpr .num").html(oprDatas.amount);
+    })
+    //交易券选择
+    $(".useTicketSel").click(function () {
+        $(this).toggleClass("seled");
+        if ($(this).hasClass("seled")) {
+            oprDatas.jyq = true;
+        } else {
+            oprDatas.jyq = false;
+        }
+        if (oprDatas.jyq) {
+            oprDatas.hydj = 10;
+            oprDatas.zyzs = 5;
+            $(".DJ .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+            $(".YS .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+        }
+    })
+})

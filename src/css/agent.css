@@ -1,0 +1,117 @@
+.red {
+  color: #ff0000; }
+
+.w96 {
+  width: 96%;
+  margin: 0 auto; }
+
+.agentHeader {
+  margin-top: 0.2994rem;
+  height: 1.85629rem; }
+  .agentHeader .userPic {
+    width: 1.85629rem;
+    height: 1.85629rem;
+    margin-right: 5px; }
+  .agentHeader .userInfo {
+    height: 1.85629rem;
+    width: 3.59281rem;
+    font-size: 0.35928rem;
+    line-height: 0.53892rem;
+    color: #444;
+    text-align: left; }
+    .agentHeader .userInfo .uName {
+      margin-top: 0.1497rem; }
+  .agentHeader .ewmLink {
+    height: 1.85629rem;
+    width: 1.49701rem;
+    overflow: hidden; }
+    .agentHeader .ewmLink .ewm1 {
+      width: 0.4491rem;
+      margin-top: 0.65868rem; }
+    .agentHeader .ewmLink .ewm2 {
+      width: 0.8982rem;
+      margin-top: 0.47904rem; }
+
+.backMoneyLink {
+  margin-top: 0.53892rem;
+  height: 1.1976rem;
+  line-height: 1.1976rem;
+  color: #444;
+  font-size: 0.41916rem;
+  border-bottom: 1px solid #ddd; }
+  .backMoneyLink .ewm1 {
+    width: 0.4491rem;
+    margin-top: 0.35928rem; }
+
+.setSta {
+  margin-top: 0.2994rem;
+  height: 1.43713rem; }
+  .setSta .setItem {
+    width: 50%;
+    box-sizing: border-box; }
+    .setSta .setItem p {
+      line-height: 0.71856rem; }
+    .setSta .setItem .staTop {
+      color: #aaa;
+      font-size: 0.38922rem; }
+    .setSta .setItem .staBot {
+      color: #444;
+      font-size: 0.41916rem; }
+  .setSta .setItem2 {
+    text-indent: 10px; }
+  .setSta .setItem1 {
+    border-right: 1px solid #ddd; }
+
+.myBackMoney {
+  border-bottom: none; }
+  .myBackMoney .customerIcon {
+    width: 0.53892rem;
+    margin-right: 0.23952rem;
+    margin-top: 0.2994rem; }
+
+.searchForm .searchTel {
+  height: 1.07784rem;
+  line-height: 1.07784rem;
+  font-size: 0.47904rem;
+  text-indent: 15px;
+  color: #444;
+  border: 1px solid #ddd;
+  box-sizing: border-box; }
+
+.searchForm .searchBtn {
+  display: block;
+  text-align: center;
+  font-size: 0.47904rem;
+  color: #fff;
+  background: #1F92EC;
+  height: 1.07784rem;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  margin-top: 0.2994rem; }
+
+.tgTable {
+  margin-top: 0.5988rem;
+  width: 100%;
+  text-align: center; }
+  .tgTable thead {
+    background: #E8E8E8;
+    color: #666;
+    font-size: 0.35928rem; }
+    .tgTable thead td {
+      border: none; }
+  .tgTable td {
+    border-bottom: 1px solid #eee;
+    padding: 0.17964rem 0.08982rem; }
+  .tgTable tbody {
+    color: #777;
+    font-size: 0.41916rem;
+    line-height: 0.4491rem; }
+
+.searchForm .selTime p {
+  text-align: center; }
+
+.searchForm .staBot input {
+  font-size: 0.2994rem;
+  color: #777;
+  border: 1px solid #eee; }

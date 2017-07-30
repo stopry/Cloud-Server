@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <script src="./js/rem/flexible.css.js"></script>
+    <script src="./js/rem/flexible.ios.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <title>操盘记录</title>
+</head>
+<body>
+    <div class="record">
+        <table class="record-table">
+            <tr>
+                <td width="40%" colspan="2">
+                    <span class="ypc">【已平仓】</span>
+                </td>
+            </tr>
+            <tr>
+                <td width="40%">
+                    商品:
+                    <span>提银剂</span>
+                </td>
+                <td width="55%">
+                    数量:
+                    <span>1</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    建仓价:
+                    <span>12345</span>
+                </td>
+                <td>
+                    创建时间:
+                    <span>2017-03-12 21:21:21</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    定价:
+                    <span>10:00</span>
+                </td>
+                <td>
+                    止盈止损点数:
+                    <span>5(看跌)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    平仓价:
+                    <span>1245</span>
+                </td>
+                <td>
+                    平仓时间:
+                    <span>2017-03-12 21:21:21</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    平仓类型:
+                    <span>止损</span>
+                </td>
+                <td>
+                    手续费:
+                    <span>1.50</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="decline">
+                        <div class="state bor_rau3 fl">亏</div>
+                        <span class="money fl">-1.80</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+<script src="./js/lib/jquery.min.js"></script>
+<script src="./js/myModule.js"></script>
+<script src="./js/index.js"></script>
+</body>
+</html>

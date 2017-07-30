@@ -1,0 +1,382 @@
+/**
+ * Created by xiaobei on 2017/3/23.
+ */
+$(function(){
+    //首页全屏
+    function autoSize(){
+        var h = $(window).height();
+        $("#chart").height(parseInt(h)-parseInt($(".indexTop").height())-parseInt($(".indexBot").height()));
+    }
+    autoSize();
+
+    var _z = new _Z();
+    _z.verticalAlign(".ajaxLayer",".loadImgWrap");
+    _z.absverticalAlign("body",".pwdOvTmBox")
+    var t = 1
+    $("body").click(function(){
+        t++
+        //_z.topAlert(t)
+    })
+    //创建图表
+    var option = {};
+    var app = null;
+    $(window).resize(function(){
+        autoSize();
+        //页面resize后重新显示图表以保证页面内容始终是全屏
+        app = echarts.init(document.getElementById('chart'));//得到图表容器
+        app.showLoading();//显示加载动画
+        app.setOption(option);//图表容易设置配置并画图
+        app.hideLoading();//回执完毕隐藏加载动画
+    })
+    function createMyChart(){
+        app = echarts.init(document.getElementById('chart'));//得到图表容器
+        app.showLoading();//显示加载动画
+        app.setOption(option);//图表容器设置配置并画图
+        app.hideLoading();//回执完毕隐藏加载动画
+    };
+    //创建分时图
+    function creatF(){
+        option = {
+            title:{
+                show:false,
+            },
+            legend:{
+                show:false,
+            },
+            dataZoom:{
+                type:'inside',
+                disabled:true,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    animation: false,
+                    lineStyle: {
+                        color: '#f94e4e',
+                        width: 1,
+                        opacity: 1
+                    }
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: ['80%', '80%'],
+                axisTick:{
+                    inside:true,
+                },
+                data: fdate,
+                axisLabel:{
+                    margin:8,
+                    rotate: -15,
+                },
+                axisLine: { lineStyle: { color: '#aaa' } },//横坐标颜色
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color: ['#f4f4f4'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                textStyle:{
+                    fontSize:10
+                }
+            },
+            grid:{
+                //show:true,
+                x:'0.85%',
+                y:5,
+                x2:'0.85%',
+                y2:26,
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    axisTick:{
+                        inside:true,
+                    },
+                    axisLabel:{
+                        //rotate:30,
+                        margin:-38,
+                    },
+                    max: 3350,
+                    min:3094,
+                    boundaryGap: ['', '100%'],
+                    axisLine: { lineStyle: { color: '#aaa' } },
+                    textStyle:{
+                        fontSize:10,
+                    },
+                    splitLine:{
+                        show:true,
+                        lineStyle:{
+                            color: ['#f4f4f4'],
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    //min: 3198,
+                    //max: 3214
+                },
+                {
+                    type: 'value',
+                    axisTick:{
+                        inside:true,
+                        show:false
+                    },
+                    axisLabel:{
+                        //rotate:30,
+                        margin:-38,
+                        formatter: '{value} %',
+                    },
+                    axisLine: { lineStyle: { color: '#aaa' },show:false },
+                    textStyle:{
+                        fontSize:10,
+                    },
+                    splitLine:{
+                        show:true,
+                        lineStyle:{
+                            color: ['#f4f4f4'],
+                            width: 0,
+                            type: 'solid'
+                        }
+                    },
+                    min: 0.4,
+                    max: 0.9
+                }
+            ],
+            series: [
+                {
+                    name:'价格',
+                    type:'line',
+                    smooth:true,
+                    symbol: 'none',
+                    sampling: 'average',
+                    itemStyle: {
+                        normal: {
+                            color: 'rgb(0, 160, 233)'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgb(69, 190, 240)'
+                            }, {
+                                offset: 1,
+                                color: 'rgb(3, 136, 196)'
+                            }])
+                        }
+                    },
+                    data: fserdata
+                },
+                {
+                    show:false,
+                    type: 'line',
+                    data: [],
+                    yAxisIndex: 1,
+                }
+            ]
+        };
+        createMyChart()
+    }
+    creatF()
+    //创建K线图
+    function creatK(){
+        option = {//图表配置
+            backgroundColor: '#fff',//图表背景色
+            legend: {//头部导航
+                show:false,
+                inactiveColor: '#777',
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            grid:{
+                //show:true,
+                x:'0.85%',
+                y:5,
+                x2:'0.85%',
+                y2:26,
+            },
+            tooltip: {//鼠标经过垂直线
+                trigger: 'axis',
+                axisPointer: {
+                    animation: false,
+                    lineStyle: {
+                        color: '#f94e4e',
+                        width: 1,
+                        opacity: 1
+                    }
+                }
+            },
+            xAxis: {//横坐标
+                type: 'category',
+                data: dates,
+                axisTick:{
+                    inside:true,
+                },
+                axisLabel:{
+                    margin:8,
+                    rotate: -15,
+                },
+                splitLine:{//分割线
+                    show:true,
+                    lineStyle:{
+                        color: ['#f4f4f4'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                axisLine: { lineStyle: { color: '#aaa' } },
+                textStyle:{
+                    fontSize:10
+                }
+            },
+            yAxis: {//纵坐标
+                min: null,
+                max: null,
+                scale: true,
+                axisTick:{
+                    inside:true,
+                },
+                axisLabel:{
+                    //rotate:30,
+                    margin:-38,
+                },
+                axisLine: { lineStyle: { color: '#aaa' } },
+                splitLine:{//分割线
+                    show:true,
+                    lineStyle:{
+                        color: ['#f4f4f4'],
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                textStyle:{
+                    fontSize:10
+                },
+            },
+            animation: true,//绘图的动画效果
+            series: [
+                {
+                    type: 'candlestick',//图表类型K线图
+                    name:'1',
+                    data: data,//浮动框中的数据
+                    itemStyle: {
+                        normal: {
+                            color: '#E63234',//涨线段颜色
+                            color0: '#1EB83F',//跌线段颜色
+                            borderColor: '#E63234',//涨线段背景色
+                            borderColor0: '#1EB83F'////跌线段背景色
+                        }
+                    }
+                },
+            ]
+        };
+        createMyChart();
+    }
+    //creatK();
+
+    //获取商品
+    ajax.post(api.goods,null,function(datas){
+        console.log(datas);
+    })
+
+    //操作区域数据
+    var oprDatas = {
+        pro:1,//商品类型
+        type:1,//类型-看涨
+        hydj:10,//合约定金
+        zyzs:10,//止盈止损
+        amount:1,//数量
+        jyq:false,//是否使用交易券
+    }
+    //重置购买弹窗数据
+    function resetbuyWid(){
+        oprDatas.hydj = 10;
+        oprDatas.zyzs = 10;
+        oprDatas.amount = 1;
+        oprDatas.jyq = false;
+        $(".addRedOpr .num").html(oprDatas.amount);
+        $(".useTicketSel").removeClass("seled");
+        $(".DJ .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+        $(".YS .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+    }
+    //显示购买弹窗 1看涨 2看跌
+    function showBuyWid(type){
+        oprDatas.type = type;
+        resetbuyWid();
+        if(type==1){
+            $(".botOprArea").removeClass("lookDownWrap");
+        }else{
+            $(".botOprArea").addClass("lookDownWrap");
+        }
+        $(".botOprArea").removeClass("hide");
+    }
+    //隐藏弹窗
+    function hideBuyWid(){
+        $(".botOprArea").addClass("hide");
+    }
+    //看涨弹窗
+    $(".lookUpBtn").click(function(){
+        showBuyWid(1)
+    });
+    $(".lookDownBtn").click(function(){
+        showBuyWid(2)
+    });
+    //关闭购买操作层
+    $(".numSel .cancelBtn").click(function(){
+        hideBuyWid();
+    })
+    //合约定金选择
+    $(".DJ .selItem").click(function(){
+        $(this).addClass("seled").siblings(".selItem").removeClass("seled");
+        var _index = $(this).index();
+        var val = $(this).html();
+        if(val>10){
+            oprDatas.hydj = false;
+            $(".useTicketSel").removeClass("seled");
+        }
+        oprDatas.hydj = val;
+        console.log(_index,val);
+    })
+    //止盈止损选择
+    $(".YS .selItem").click(function(){
+        $(this).addClass("seled").siblings(".selItem").removeClass("seled");
+        var _index = $(this).index();
+        var val = $(this).html();
+        if(val>10){
+            oprDatas.hydj = false;
+            $(".useTicketSel").removeClass("seled");
+        }
+        oprDatas.zyzs = val;
+        console.log(_index,val);
+    });
+    //数量选择
+    $(".addRedOpr .reduNum").click(function(){
+        if(oprDatas.amount<=1) return;
+        oprDatas.amount-=1;
+        console.log(oprDatas.amount)
+        $(".addRedOpr .num").html(oprDatas.amount);
+    })
+    $(".addRedOpr .addNum").click(function(){
+        if(oprDatas.amount>=10) return;
+        oprDatas.amount+=1;
+        $(".addRedOpr .num").html(oprDatas.amount);
+    })
+    //交易权选择
+    $(".useTicketSel").click(function(){
+        $(this).toggleClass("seled");
+        if($(this).hasClass("seled")){
+            oprDatas.jyq = true;
+        }else{
+            oprDatas.jyq = false;
+        }
+        if(oprDatas.jyq){
+            oprDatas.hydj = 10;
+            oprDatas.zyzs = 10;
+            $(".DJ .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+            $(".YS .selItem").eq(0).addClass("seled").siblings(".selItem").removeClass("seled");
+        }
+    })
+})

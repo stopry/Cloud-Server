@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>经纪人中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <script src="./js/rem/flexible.css.js"></script>
+    <script src="./js/rem/flexible.ios.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/agent.css">
+</head>
+<body style="background: #fff">
+<div class="alertLayer"></div>
+<div class="ajaxLayer">
+    <div class="loadImgWrap">
+        <img src="./images/xl_load.gif" alt="">
+    </div>
+</div>
+<div class="agentHeader w96 ovhd">
+    <div class="userPic fl">
+        <img src="./images/header.jpg" class="w100 h100" alt="">
+    </div>
+    <div class="userInfo fl">
+        <p class="uName">谢林斌</p>
+        <p class="uNo">经纪人编号：10086</p>
+    </div>
+    <div class="ewmLink fr feedBtn" onclick="location = './qrCode.html'">
+        <img src="./images/go.png" class="ewm1 fr" alt="">
+        <img src="./images/rwmicon.png" class="ewm2 fr" alt="">
+    </div>
+</div>
+<div class="backMoneyLink w100 ovhd">
+    <div class="backWrap w96 ovhd feedBtn" onclick="location = './myBackmoney.html'">
+        <div class="leftSec fl">0.00</div>
+        <div class="rightSec fr">
+            <img src="./images/go.png" class="ewm1 fr" alt="">
+            <p class="rText fr">我的返佣</p>
+        </div>
+    </div>
+</div>
+<div class="setSta w96 ovhd">
+    <div class="setItem setItem1 fl">
+        <p class="staTop tl">
+            已结算收入
+        </p>
+        <p class="staBot tl">
+            0.00
+        </p>
+    </div>
+    <div class="setItem setItem2 fl">
+        <p class="staTop tl">
+            未结算收入
+        </p>
+        <p class="staBot tl">
+            0.00
+        </p>
+    </div>
+</div>
+<div class="backMoneyLink w100 ovhd myBackMoney">
+    <div class="backWrap w96 ovhd feedBtn"  onclick="location = './spreadList.html'">
+        <img src="./images/customer.png" class="customerIcon fl" alt=""><div class="leftSec fl">直属客户</div>
+        <div class="rightSec fr">
+            <img src="./images/go.png" class="ewm1 fr" alt="">
+            <p class="rText fr"></p>
+        </div>
+    </div>
+</div>
+<p class="w96 red">
+    *实际收入以交易日结算完成后为准
+</p>
+<script src="./js/lib/jquery.min.js"></script>
+<script src="./js/myModule.js"></script>
+<script src="./js/global.js"></script>
+
+</body>
+</html>

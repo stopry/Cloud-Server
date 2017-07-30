@@ -1,0 +1,87 @@
+/**
+ * Created by Administrator on 2017/3/30 0030.
+ */
+$(function(){
+
+    var formData = {
+        money:5000,//充值金额
+        type:1,//充值方式-支付宝
+    }
+    //充值金额选择
+    $(document).on("click",".selMoneyWrap .selItem",function(){
+        var val = $(this).data("val");
+        formData.money = val;
+        $(this).addClass("seled").siblings(".selItem").removeClass("seled");
+        console.log(val);
+    })
+    //充值方式
+    $(document).on("click",".per-list.recharge .list",function(){
+        $(this).addClass("chceked").siblings(".list").removeClass("chceked");
+        var type = $(this).data("type");
+        formData.type = type;
+        if(type==2){
+            $(".ylPayInput").removeClass("hide");
+        }else{
+            $(".ylPayInput").addClass("hide");
+        }
+        console.log(type);
+    })
+    //银联支付需要的数据
+    ylPayDatas = {
+        carNum:null,
+        name:null,
+        idCard:null
+    }
+    //充值提交数据
+    var rechargeDatas= {};
+    //得到充值数据
+    function getRechargeDatas(){
+        rechargeDatas.amount = formData.money;
+        rechargeDatas.payType = formData.type;
+        rechargeDatas.remark = "null";
+        if(rechargeDatas.payType==2){//充值方式为银联支付
+            ylPayDatas.carNum = $.trim($(".ylPayInput .ctrCardNum").val());//银行卡号
+            ylPayDatas.name = $.trim($(".ylPayInput .realName").val());//真实姓名
+            ylPayDatas.idCard = $.trim($(".ylPayInput .idCard").val());//身份证
+            if(!ylPayDatas.carNum){
+                _z_.topAlert("请输入银行卡号");
+                return false;
+            }else if(!reg.bankCardReg.test(ylPayDatas.carNum)){
+                _z_.topAlert("请输入正确银行卡号");
+                return false;
+            }else if(!ylPayDatas.name){
+                _z_.topAlert("请输入真实姓名");
+                return false;
+            }else if(!reg.nameReg.test(ylPayDatas.name)){
+                _z_.topAlert("请输入正确姓名");
+                return false;
+            }else if(!ylPayDatas.idCard){
+                _z_.topAlert("请输入身份证号");
+                return false;
+            }else if(!reg.idCardReg.test(ylPayDatas.idCard)){
+                _z_.topAlert("请输入正确身份证号");
+                return false;
+            }
+            return $.extend(rechargeDatas, ylPayDatas);
+            //return true;
+        }
+        return rechargeDatas;
+    };
+    //提交充值
+    function subRecharge(){
+        var recDatas = getRechargeDatas();
+        if(!recDatas) return;
+        console.log(recDatas);
+        ajax.post(api.recharge,recDatas,function(datas){
+            if(datas.httpCode==200){
+
+            }else{
+                _z_.topAlert(datas.msg);
+            }
+        })
+    }
+    $(".rechageSub .submitBtn").click(function(){
+        console.log(4)
+        subRecharge();
+    })
+})

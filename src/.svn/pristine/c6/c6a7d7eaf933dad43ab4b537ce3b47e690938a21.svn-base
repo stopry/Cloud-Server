@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <script src="./js/rem/flexible.css.js"></script>
+    <script src="./js/rem/flexible.ios.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_5sqpn13tj0885mi.css">
+    <link rel="stylesheet" href="./css/global.css">
+</head>
+<body>
+    <div class="alertLayer"></div>
+    <div class="ajaxLayer">
+        <div class="loadImgWrap">
+            <img src="./images/xl_load.gif" alt="">
+        </div>
+    </div>
+    <div class="per-top">
+        <div class="top">
+            <div class="head bor_rau3 fl">
+                <img src="./images/header.jpg" alt="">
+            </div>
+            <div class="text fl">
+                <p>资产</p>
+                <p>39.00元</p>
+            </div>
+            <div class="btn fr">
+                <a href="javascript:;" class="bor_rau3 feedBtn" onclick="urlTo('./recharge.html')">充值</a>
+                <a href="javascript:;" class="bor_rau3 feedBtn" onclick="urlTo('./cash.html')">提现</a>
+            </div>
+        </div>
+        <div class="money moneyRt">
+            <p>39.00</p>
+            <p>可用保证金</p>
+        </div>
+        <div class="money moneyLt">
+            <p>39.00</p>
+            <p>可用保证金</p>
+        </div>
+    </div>
+    <div class="per-list">
+        <div class="list ks-clear feedBtn" onclick="urlTo('./chain.html')">
+            <div class="img fl icon iconfont icon-icon07">
+
+            </div>
+            <p class="fl textOverDot">我的交易轨迹</p>
+            <i class="icon iconfont icon-right"></i>
+        </div>
+        <div class="list ks-clear feedBtn" onclick="urlTo('./record.html')">
+            <div class="img fl icon iconfont icon-jilu"></div>
+            <p class="fl textOverDot">出租金记录</p>
+            <i class="icon iconfont icon-right"></i>
+        </div>
+        <div class="list ks-clear feedBtn" onclick="urlTo('./settings.html')">
+            <div class="img fl icon iconfont icon-shezhi"></div>
+            <p class="fl textOverDot">个人设置</p>
+            <i class="icon iconfont icon-right"></i>
+        </div>
+    </div>
+
+    <script src="./js/lib/jquery.min.js"></script>
+    <script src="./js/myModule.js"></script>
+    <script src="./js/global.js"></script>
+    <script src="./js/personal.js"></script>
+</body>
+</html>

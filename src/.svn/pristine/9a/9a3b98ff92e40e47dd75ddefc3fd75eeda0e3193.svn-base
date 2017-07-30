@@ -1,0 +1,29 @@
+/**
+ * Created by Administrator on 2017/3/30 0030.
+ */
+$(function(){
+
+    var formData = {
+        money:5000,//充值金额
+        type:1,//充值方式-支付宝
+    }
+    //充值金额选择
+    $(document).on("click",".selMoneyWrap .selItem",function(){
+        var val = $(this).data("val");
+        formData.money = val;
+        $(this).addClass("seled").siblings(".selItem").removeClass("seled");
+        console.log(val);
+    })
+    //充值方式
+    $(document).on("click",".per-list.recharge .list",function(){
+        $(this).addClass("chceked").siblings(".list").removeClass("chceked");
+        var type = $(this).data("type");
+        formData.type = type;
+        if(type==2){
+            $(".ylPayInput").removeClass("hide");
+        }else{
+            $(".ylPayInput").addClass("hide");
+        }
+        console.log(type);
+    })
+})

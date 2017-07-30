@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <script src="./js/rem/flexible.css.js"></script>
+    <script src="./js/rem/flexible.ios.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_5sqpn13tj0885mi.css">-->
+    <link rel="stylesheet" href="./css/global.css">
+    <title>个人设置</title>
+</head>
+<body>
+
+<a href="javascript:;" class="set-wart feedBtn" onclick="urlTo('./changepwd.html')">
+    <h3>修改交易密码</h3>
+    <p>为了你的资金安全，请妥善保管你的交易密码</p>
+    <!--<i class="icon iconfont icon-right"></i>-->
+</a>
+<div class="pwdOvTmBox hide">
+    <div class="selfTitle tc">
+        <i class="icon iconfont icon-5"></i>
+        交易密码已过期请重新输入
+    </div>
+    <input type="password" class="inputPwd tc disbl formCtrl" placeholder="请输入交易密码">
+    <button class="tc cl_w feedBtn waves formCtrl subBtn disbl">确定</button>
+    <a href="javascript:void(0)" class="forgetPwd disbl w100 tr">忘记密码?</a>
+</div>
+<script src="./js/auth/auth.js"></script>
+<script src="./js/lib/jquery.min.js"></script>
+<script src="./js/myModule.js"></script>
+<script src="./js/global.js"></script>
+</body>
+</html>

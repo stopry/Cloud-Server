@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的返佣</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <script src="./js/rem/flexible.css.js"></script>
+    <script src="./js/rem/flexible.ios.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/agent.css">
+</head>
+<body style="background: #fff">
+<div class="alertLayer"></div>
+<div class="ajaxLayer">
+    <div class="loadImgWrap">
+        <img src="./images/xl_load.gif" alt="">
+    </div>
+</div>
+<div class="backMoneyLink w100 ovhd myBackMoney">
+    <div class="backWrap w96 ovhd feedBtn">
+        <img src="./images/money.png" class="customerIcon fl" alt=""><div class="leftSec fl">返佣总金额<span class="red">30.00</span> 元;注：以实际到账为准</div>
+        <div class="rightSec fr">
+            <!--<img src="./images/go.png" class="ewm1 fr" alt="">-->
+            <p class="rText fr"></p>
+        </div>
+    </div>
+</div>
+
+<div class="searchForm w96">
+    <div class="setSta w100 ovhd selTime">
+        <div class="setItem fl">
+            <p class="staTop tl">
+                起始日期
+            </p>
+            <p class="staBot tl">
+                <input type="datetime-local">
+            </p>
+        </div>
+        <div class="setItem setItem2 fl">
+            <p class="staTop tl">
+                截至日期
+            </p>
+            <p class="staBot tl">
+                <input type="datetime-local">
+            </p>
+        </div>
+    </div>
+    <button class="searchBtn feedBtn">
+        搜索
+    </button>
+</div>
+<table class="tgTable">
+    <thead>
+        <tr class="Title">
+            <td>昵称</td>
+            <td>手数</td>
+            <td>定金</td>
+            <td>交易额</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>5</td>
+            <td>250:00</td>
+            <td>100:00</td>
+        </tr>
+    </tbody>
+
+</table>
+
+<script src="./js/lib/jquery.min.js"></script>
+<script src="./js/myModule.js"></script>
+<script src="./js/global.js"></script>
+<script>
+    $(function(){
+        function IndexLoad(){
+        }//构造函数
+        //页面到达底部
+        IndexLoad.prototype.pullBot = function(){
+            var wh = $(window).height();
+            var sct = $(window).scrollTop();
+            var dh = $(document).height();
+            if(wh+sct>dh-30){
+                //到达底部
+                return true;
+            }
+            //没有
+            return false;
+        };
+        //加载数据
+        var isload = false;
+        var pageNum = 1;//默认页数
+        var searchconfig = {
+            startTime:'',//开始时间
+            endTime:'',//结束时间
+            pageNum:1,//页数
+        };
+
+        IndexLoad.prototype.getData = function(){
+            searchconfig.pageNum = pageNum;
+            if(!searchconfig.startTime||!searchconfig.endTime){
+                _z_.topAlert('请输入开始与结束时间');
+                return;
+            }
+            var url = '#';
+            var that = this;
+            if(!isload){
+                isload = true;
+                $.ajax({
+                    url:url,
+                    type:'POST',
+                    data:searchconfig,
+                    success:function(datas){
+                        log('加载成功');
+                        pageNum++;
+                        isload = false;
+                    },
+                    error:function(){
+                        log('加载数据失败')
+                    }
+                })
+            }
+        };
+        var Load = new IndexLoad();
+        Load.getData();
+
+        $(window).scroll(function(){
+            var isbot = Load.pullBot();
+            if(isbot){
+                Load.getData();
+            }
+        })
+    })
+</script>
+</body>
+</html>

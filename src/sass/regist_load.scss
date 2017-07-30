@@ -1,0 +1,108 @@
+@function rem($n){
+  @return ($n/62.2)+rem;
+}
+.registWrap{
+	width:96%;
+	overflow:hidden;
+	margin:rem(80) auto;
+	.input-control{
+		height:rem(85);
+		margin:0 auto;
+		background:#fff;
+		border-top:1px solid #EEE6DB;
+		border-bottom:1px solid #EEE6DB;
+		margin-bottom:rem(20);
+		.control-title{
+			line-height:rem(85);
+			width:rem(156);
+			float:left;
+			text-align:center;
+			color:#444;
+			font-size:rem(30);
+			.red-font{
+				color:red;
+			}
+		}
+		.ipt-item{
+			border:none;
+			float:left;
+			display:block;
+			height:rem(85);
+			width:rem(312);
+			margin-left:rem(10);
+			font-size:rem(28);
+			color:#000;
+		}
+		.get-vcode{
+			position:absolute;
+			width:rem(174);
+			height:rem(58);
+			border-radius:rem(10);
+			background:#ccc;
+			color:#fff;
+			font-size:rem(24);
+			text-align:center;
+			top:rem(14);
+			right:rem(20);
+			line-height:rem(58);
+			&.active{
+				background:#45B6FF;
+			}
+		}
+		.is-showpwd{
+			width:rem(40);
+			height:rem(30);
+			position:absolute;
+			text-align:center;
+			top:rem(28);
+			right:rem(20);
+			background:url(../images/reg_hide_pwd.png) no-repeat center;
+			background-size:100% 100%;
+			&.showPwd{
+				background:url(../images/reg_show_pwd.png) no-repeat center;
+				background-size:100% 100%;
+			}
+		}
+	}
+	
+}
+.sel-tk {
+	margin-bottom:rem(20);
+	font-size:rem(24);
+	color:#888;
+	.sel-icon{
+		height:rem(34);
+		width:rem(34);
+		margin-left:rem(10);
+		background:url(../images/reg_sel_f.png) no-repeat center;
+		background-size:100% 100%;
+		border-radius:rem(5);
+		overflow:hidden;
+		margin-left:rem(20);
+		margin-right:rem(10);
+	}
+	&.seled{
+		.sel-icon{
+			height:rem(34);
+			width:rem(34);
+			margin-left:rem(20);
+			margin-right:rem(10);
+			background:url(../images/reg_sel_t.png) no-repeat center;
+			background-size:100% 100%;
+		}
+	}
+}
+.reg-btn{
+	color:#9A0620;
+	width:rem(237);
+	height:rem(67);
+	line-height:rem(67);
+	font-size:rem(28);
+	margin:0 auto;
+	margin-bottom:rem(20);
+	border-radius:rem(10);
+	overflow:hidden;
+	box-shadow:0 2px 8px 2px rgba(0,0,0,.1);
+	background:url(../images/reg_byn_bg.png) no-repeat center;
+	background-size:100% 100%;
+}

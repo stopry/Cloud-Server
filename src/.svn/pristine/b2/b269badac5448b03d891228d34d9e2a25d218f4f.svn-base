@@ -1,0 +1,97 @@
+$(function(){
+    var pageNum = 1;
+    var isloading = false;
+    function getList(){
+        if(isloading) return;
+        isloading = true;
+        ajax.post(api.flow,{pageNum:pageNum},function(datas){
+            console.log(datas)
+            if(datas.httpCode!==200){
+                $(".record").append(
+                '<table class="record-table">'+
+                    '<tr>'+
+                    '<td width="40%" colspan="2">'+
+                    '<span class="ypc">【已平仓】</span>'+
+                '</td>'+
+               '</tr>'+
+                '<tr>'+
+                '<td width="40%">'+
+                   '商品:'+
+           '<span>提银剂</span>'+
+                '</td>'+
+               '<td width="55%">'+
+                    '数量:'+
+            '<span>1</span>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>'+
+                '建仓价:'+
+            '<span>12345</span>'+
+                '</td>'+
+                '<td>'+
+                '创建时间:'+
+            '<span>2017-03-12 21:21:21</span>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>'+
+                '定价:'+
+            '<span>10:00</span>'+
+                '</td>'+
+                '<td>'+
+               '止盈止损点数:'+
+            '<span>5(看跌)</span>'+
+               '</td>'+
+               '</tr>'+
+               '<tr>'+
+               '<td>'+
+               '平仓价:'+
+            '<span>1245</span>'+
+                '</td>'+
+                '<td>'+
+                '平仓时间:'+
+           '<span>2017-03-12 21:21:21</span>'+
+               '</td>'+
+               '</tr>'+
+                '<tr>'+
+                '<td>'+
+                '平仓类型:'+
+            '<span>止损</span>'+
+                '</td>'+
+                '<td>'+
+               '手续费:'+
+            '<span>1.50</span>'+
+                '</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td colspan="2">'+
+                    '<div class="decline">'+
+                    '<div class="state bor_rau3 fl">亏</div>'+
+                    '<span class="money fl">-1.80</span>'+
+                    '</div>'+
+                    '</td>'+
+                    '</tr>'+
+                    '</table>'
+                )
+            }else{
+                _z_.topAlert(datas.msg);
+            }
+            isloading = false;
+            pageNum++
+        })
+    };
+
+    function buildTable(data){
+
+    }
+
+    $(window).on("scroll",function(){
+        var h = parseInt($(window).height());
+        var top = $(window).scrollTop();
+        if($(document).height()==h+top){
+            getList()
+        }
+    })
+    getList()
+})

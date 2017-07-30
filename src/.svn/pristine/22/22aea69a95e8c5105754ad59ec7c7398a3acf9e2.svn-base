@@ -1,0 +1,1196 @@
+/*公共变量*/
+//px->rem
+@function rem($n){
+  @return ($n/64)+rem;
+}
+$primcolor:#2093EC;//主色调
+$upcolor:#E63234;//上涨颜色
+$downcolor:#1EB83F;//下降颜色
+$moneycolor:#EA7503;//金额颜色
+$boldfontcolor:#222222;//深字体颜色
+$lightfontcolor:#6F6F6F;//浅字体颜色
+$iconcolor:#999;//小图标颜色
+$bordercolor:#BDBDBD;//边框颜色
+$prifontcolor:#5a5a5a;//主题字体颜色
+$bodybg:#F2F2F2;//body背景
+body{
+  background: #f2f2f2;
+  overflow-x: hidden;
+}
+.per-top{
+  position: relative;
+  height: rem(208);
+  background: #ff490d;
+  box-sizing: border-box;
+  .top{
+    padding: rem(17);
+    box-sizing: border-box;
+  }
+  .head{
+    width: rem(110);
+    height:rem(110);
+    border-radius: 6px;
+    background: darkred;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height:100%;
+    }
+  }
+  .text{
+    p{
+      margin-left: rem(17);
+      font-size: rem(28);
+      font-family: "microsoft yahei";
+      color: #fff;
+      line-height:rem(45);
+    }
+  }
+  .btn{
+    a{
+      display: block;
+      width: rem(135);
+      height: rem(45);
+      color:#fff;
+      text-align: center;
+      font-size: rem(28);
+      line-height: rem(45);
+      background: #2093ec;
+      font-family: "microsoft yahei";
+      &:first-child{
+        margin-bottom: rem(17);
+      }
+    }
+  }
+  .money{
+    position: absolute;
+    bottom: 0;
+    width: rem(318);
+    height: rem(64);
+    text-align: center;
+    color:#fff;
+    background: rgba(0,0,0,0.2);
+    &.moneyRt{
+      left: 0;
+    }
+    &.moneyLt{
+      right: 0;
+    }
+    p{
+      color:#fff;
+      line-height: rem(32);
+      font-size: rem(24);
+      font-family: "microsoft yahei";
+    }
+  }
+}
+.per-list{
+  border-top: 1px solid #bdbdbd;
+  border-bottom: 1px solid #bdbdbd;
+  background: #fff;
+  .list{
+    position: relative;
+    padding: rem(16);
+    color: #000;
+    font-size: rem(26);
+    line-height: rem(46);
+    i{
+      color: $lightfontcolor;
+    }
+    &:first-child:before{
+      height: 0;
+    }
+    &:before{
+      position: absolute;
+      left: rem(18);
+      right: 0;
+      top: 0;
+      width: 100%;
+      content: '';
+      height: 1px;
+      background: #bdbdbd;
+    }
+    p{
+      margin-left: rem(10);
+      width: rem(510);
+    }
+    &:nth-child(2) .img{
+      background: #D83131;
+    }
+    &:nth-child(3) .img{
+      background: #5592DD;
+    }
+  }
+  .img{
+    width: rem(46);
+    height:rem(46);
+    border-radius: 50%;
+    background: #55A7E0;
+    text-align: center;
+    line-height: rem(46);
+    font-size: rem(32);
+    color: #fff;
+
+  }
+}
+.set-wart{
+  position: relative;
+  display: block;
+  background: #fff;
+  padding: rem(28) rem(40) rem(28) rem(20);
+  color: #828282;
+  box-sizing: border-box;
+  border-bottom: 1px solid $bordercolor;
+  h3{
+    color: #000;
+    font-size: rem(24);
+  }
+  p{
+    font-size: rem(18);
+  }
+  i.icon-right{
+    position: absolute;
+    right: rem(20);
+    top: rem(40);
+    color: #999;
+  }
+}
+//输入框组件
+.inputControl{
+  width: 100%;
+  height: rem(72);
+  line-height: rem(72);
+  border-radius: 3px;
+  display: block;
+  font-size: rem(24);
+  text-indent: rem(20);
+  color: $prifontcolor;
+  box-sizing: border-box;
+  border: 1px solid $bordercolor;
+  background: #fff;
+}
+//确定按钮组件
+.submitBtn{
+  width: 100%;
+  height: rem(70);
+  display: block;
+  text-align: center;
+  line-height: rem(70);
+  color: #fff;
+  font-size: rem(28);
+  background: #ccc;
+  border-radius: 3px;
+  &.active{
+    background: $primcolor;
+  }
+}
+//标题组件
+.itemTitle{
+  &.tBor{
+    border-top: 1px solid $bordercolor;
+  }
+  width: 100%;
+  height: rem(70);
+  text-indent: rem(12);
+  text-align: left;
+  line-height:rem(70);
+  color: $boldfontcolor;
+  font-size: rem(28);
+  background: #fff;
+}
+//修改密码
+.changePwdWrap{
+  width: rem(564);
+  margin: 0 auto;
+  .changePwdTitle{
+    font-size: rem(32);
+    text-align: center;
+    color: $prifontcolor;
+    margin: rem(60) auto rem(70) auto;
+  }
+  .cPwdIpt{
+    margin-bottom: rem(38);
+  }
+  .submitChangePwd{
+    margin-top: rem(70);
+  }
+}
+//充值
+.per-list.recharge{
+  .list{
+    .img{
+      border-radius: 0;
+      background: none !important;
+      img{
+        width: 80%;
+        height: 80%;
+        margin-top: -0.15rem;
+      }
+    }
+    .checkBox{
+      height: rem(34);
+      width: rem(34);
+      display: block;
+      right: rem(20);
+      top: rem(20);
+      border: 1px solid $prifontcolor;
+      box-sizing: border-box;
+      border-radius: 50%;
+    }
+    &.chceked .checkBox{
+      background: url(../images/checked.png) no-repeat center;
+      background-size: 100% 100%;
+      border: none;
+    }
+  }
+}
+.ylPayInput{
+  &.hide{
+    display: none;
+  }
+  margin-top: rem(35);
+  .list{
+    .iptDesc{
+      width: 28%;
+      color: $prifontcolor;
+      font-size: rem(28);
+
+    }
+    .inputCtr{
+      border: none;
+      text-align: left;
+      width: 70%;
+    }
+  }
+}
+.rechageSub{
+  margin: 0 auto;
+  width: rem(602);
+  margin-top: rem(38);
+}
+.per-top.recharge{
+  background: #fff;
+  margin-bottom: rem(22);
+  height: rem(150);
+  border-bottom: 1px solid $bordercolor;
+  .head{
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .text p{
+    color: $boldfontcolor;
+    font-size: rem(28);
+  }
+}
+.conBox{
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid $bordercolor;
+  border-top: 1px solid $bordercolor;
+  margin-bottom: rem(25);
+}
+.selMoneyWrap{
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  .selItem{
+    float: left;
+    width: rem(138);
+    height: rem(64);
+    box-sizing: border-box;
+    line-height: rem(64);
+    border: 1px solid $bordercolor;
+    border-radius: 3px;
+    font-size: rem(26);
+    background: #fff;
+    color: $prifontcolor;
+    margin-left: rem(17);
+    margin-bottom: rem(20);
+    &.seled{
+      border-color: $primcolor;
+      background: $primcolor;
+      color: #fff;
+    }
+  }
+}
+//操盘记录
+.record{
+  background:#fff;
+  box-sizing: border-box;
+  padding: rem(3) 0 rem(0.5);
+  word-wrap:break-word;
+  .record-table{
+    margin: rem(13);
+    border-bottom: 1px solid #ebebeb;
+    color: #333;
+    td{
+      height: rem(46);
+      color: #333333;
+      font: rem(24)/rem(28) 'microsoft yahei';
+    }
+    .state{
+      width: rem(44);
+      height: rem(46);
+      line-height: rem(46);
+      background:$downcolor ;
+      color: #fff;
+      font-size: rem(24);
+      text-align: center;
+      margin-top: rem(10);
+      margin-bottom: rem(25);
+    }
+    .money{
+      display: block;
+      margin: rem(10);
+      height: rem(46);
+      line-height: rem(46);
+      color:$downcolor ;
+    }
+    .ypc{
+      margin-left: rem(-20);
+    }
+  }
+}
+//出入金查询
+.chain-money{
+  background: #fff;
+  border-bottom: 1px solid #c7c7c7;
+  padding: rem(18);
+  box-sizing: border-box;
+  font-size: rem(22);
+  .chain-ul li{
+    display: block;
+    min-height: rem(38);
+    padding: rem(10) 0;
+    .cz{
+      color: #333;
+    }
+    .ddh{
+      color: #000;
+    }
+    .time{
+      color: #6d6d6d;
+    }
+  }
+  .block{
+    width: rem(180);
+    height:rem(38);
+    line-height: rem(38);
+    .mk1{
+     background: #ed982b;
+      color: #fff;
+    }
+    .mk2{
+      border:1px solid #4a4a4a;
+      color: #4a4a4a;
+      height: rem(36);
+      line-height: rem(34);
+    }
+  }
+  .block-span{
+    margin-right: rem(7);
+    display: block;
+    width: rem(38);
+    height:rem(38);
+    line-height: rem(38);
+    text-align: center;
+    font-size: rem(24);
+  }
+}
+//提现
+.per-top.cash{
+  .top .text{
+    p{
+      b.red{
+        color: $moneycolor;
+      }
+    }
+  }
+}
+.ylPayInput.cashMoney{
+  margin-top: rem(20);
+}
+.grayTips{
+  height: rem(64);
+  line-height: rem(64);
+  background: #EEEEEE;
+  text-align: left;
+  text-indent: rem(18);
+  font-size: rem(20);
+  color: $lightfontcolor;
+}
+.cashForm{
+  .inputCtr{
+    i.icon-right{
+      float: right;
+      color: $lightfontcolor;
+      right: 0;
+    }
+  }
+  .list{
+    .inputCtr .bankWrap img{
+      height: rem(42);
+      width: rem(42);
+    }
+  }
+}
+.verMobile{
+  font-size: rem(28);
+  background: #ddd;
+  height: rem(74);
+  line-height: rem(74);
+  text-indent: rem(20);
+  color: $prifontcolor;
+  span.priColor{
+    color: $primcolor;
+  }
+  &.verCode{
+    background: #fff;
+    box-sizing: border-box;
+    border-top: 1px solid $bordercolor;
+    border-bottom: 1px solid $bordercolor;
+    .verCode{
+      width: 25%;
+    }
+    .verCodeIpt{
+      width: 70%;
+      border: none;
+      height: rem(74);
+      line-height: rem(74);
+    }
+    .getVerCode{
+      top: 0;
+      height: rem(74);
+      border: none;
+      background: none;
+      color: #aaa;
+      right: rem(20);
+      &.active{
+        color: $primcolor;
+      }
+    }
+  }
+}
+//首页
+.indexPage{
+  margin-bottom: 0 !important;
+  position: relative;
+  border-bottom: none !important;
+}
+.tradBtnGro{
+  height: rem(46);
+  .btnCtrl{
+    height: rem(46);
+    width: rem(160);
+    line-height: rem(46);
+    color: #fff;
+    text-align: center;
+    font-size: rem(24);
+    background: $primcolor;
+    display: block;
+    float: left;
+    margin-left: rem(16);
+    border-radius: 3px;
+    margin-top: rem(18);
+  }
+}
+.proSel{
+  height: rem(100);
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
+  display: flex;
+  .proItem{
+    box-sizing: border-box;
+    &.active{
+      background: #EEF7FE;
+      border-bottom: 2px solid $primcolor;
+      &.up{
+        .proZS{
+          color: $upcolor;
+        }
+      }
+      &.down{
+        .proZS{
+          color: $downcolor;
+        }
+      }
+    }
+    flex: 1;
+    height: rem(100);
+    color: $boldfontcolor;
+    font-size: rem(26);
+    text-align: left;
+    line-height: rem(40);
+    text-indent: rem(20);
+    background: #EFEFF4;
+    flex: 1;
+    .proZS{
+      color: #626262;
+      font-size: rem(30);
+      i{
+        font-size: rem(30);
+      }
+    }
+    .proNmae{
+      margin-top: rem(8);
+    }
+  }
+}
+.proInfo{
+  display: block;
+  overflow: hidden;
+  .itmeDetail{
+    float: left;
+    width: 25%;
+    height: rem(64);
+    line-height: rem(64);
+    text-align: center;
+    font-size: rem(20);
+    color: $lightfontcolor;
+    .detail{
+      color: $boldfontcolor;
+    }
+  }
+}
+#chart{
+  width: rem(620);
+  margin: 0 auto;
+  background: #ccc;
+  height: rem(430);
+}
+.chartSel{
+  width: 100%;
+  height: rem(52);
+  box-sizing: border-box;
+  border-bottom: 1px solid #F3F3F3;
+  .itme{
+    width: 25%;
+    float: left;
+    font-size: rem(24);
+    color: $prifontcolor;
+    text-align: center;
+    background: #F3F3F3;
+    line-height: rem(52);
+    &.seled{
+      background: #fff;
+      color: $primcolor;
+    }
+  }
+}
+.lookUpDown{
+  margin: 0 auto;
+  margin-top: rem(18);
+  width: rem(620);
+  .lookBtn{
+    width: rem(306);
+    height: rem(74);
+    line-height: rem(74);
+    color: #fff;
+    font-size: rem(28);
+    text-align: center;
+    border-radius: 4px;
+  }
+  .lookUpBtn{
+    float: left;
+    background: $upcolor;
+  }
+  .lookDownBtn{
+    float: right;
+    background: $downcolor;
+  }
+}
+.indexTips{
+  color: #999;
+  font-size: rem(20);
+  margin-top: rem(5);
+}
+.smallTickets{
+  width: 100%;
+  height: rem(44);
+  color: #fff;
+  background: #272C35 url("../images/qm.png") no-repeat left;
+  background-size: auto 100%;
+  margin-top: rem(5);
+}
+.botOprArea.lookUpWrap{
+  &.lookDownWrap{
+    .title{
+      color: $downcolor;
+    }
+    .numSel .addRedOpr .item.num{
+      color: $downcolor;
+    }
+    .numSel .confirmBtn{
+      background: $downcolor;
+    }
+  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index:10;
+  background: #F1F1F1;
+  width: 100%;
+  overflow: hidden;
+  .title{
+    color: $upcolor;
+    height: rem(74);
+    line-height: rem(74);
+    font-size: rem(32);
+    box-sizing: border-box;
+    border-bottom: 1px solid $bordercolor;
+    background: none;
+    i{
+      font-size: rem(32);
+    }
+  }
+  .numSel{
+    height: rem(54);
+    margin-top: rem(38);
+    line-height: rem(54);
+    .desc{
+      height: rem(54);
+      color: $boldfontcolor;
+      font-size: rem(24);
+      width: rem(140);
+      margin-left: rem(20);
+      text-align: left;
+    }
+    .selItem{
+      background: #fff;
+      width: rem(140);
+      height: rem(54);
+      border-radius: 3px;
+      margin-left: rem(14);
+      color: $prifontcolor;
+      box-sizing: border-box;
+      border: 1px solid $bordercolor;
+      font-size: rem(22);
+      &.seled{
+        border-color: $primcolor;
+        color: $primcolor;
+      }
+    }
+    .addRedOpr{
+      width: rem(186);
+      height: rem(54);
+      line-height: rem(54);
+      a.item{
+        border: 1px solid $bordercolor;
+        color: $prifontcolor;
+        font-size: rem(22);
+        background: #fff;
+        height: rem(54);
+        border-radius: 3px;
+      }
+      .item{
+        width: 33.333%;
+        box-sizing: border-box;
+        &.num{
+          color: $upcolor;
+        }
+      }
+    }
+    .tips{
+      float: right;
+      margin-right: rem(24);
+      color: #999;
+      font-size: rem(24);
+      text-align: right;
+      line-height: rem(54);
+    }
+  }
+}
+.numSel{
+  height: rem(68) !important;
+  line-height: rem(68);
+  text-align: center;
+  font-size: rem(26);
+  .oprBtn{
+    height: rem(68);
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 3px;
+    line-height: rem(68);
+  }
+  .cancelBtn{
+    width: rem(230);
+    background: #fff;
+    margin-left: rem(20);
+    border: 1px solid $bordercolor;
+  }
+  .confirmBtn{
+    margin-left: rem(20);
+    background: $upcolor;
+    color: #fff;
+    width: rem(354);
+  }
+}
+.botTips{
+  color: #999;
+  font-size: rem(20);
+  margin: rem(15) auto rem(30) auto;
+}
+.myCenterText{
+  left: 0;
+  bottom: 0;
+  height: rem(26);
+  line-height: rem(26);
+  font-size: rem(20);
+  background: rgba(0,0,0,.618);
+}
+.alertLayer,.ajaxLayer{
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.618);
+  position: fixed;
+  z-index: 6;
+  top:0;
+  left: 0;
+  display: none;
+}
+.ajaxLayer{
+  background: rgba(0,0,0,.18);
+  //display: block;
+}
+.loadImgWrap{
+  height: rem(120);
+  width: rem(120);
+  border-radius: rem(10);
+  background: rgba(0,0,0,.518);
+  margin: 0 auto;
+  img{
+    width: rem(40);
+    height: rem(40);
+    margin-top: rem(40);
+    margin-left: rem(40);
+  }
+}
+.botOprArea.hide,.pwdOvTmBox.hide{
+  transition: all ease 300ms;
+  transform: scale(0,0);
+}
+.botOprArea,.pwdOvTmBox{
+  transition: all ease 300ms;
+  transform: scale(1,1);
+}
+.pwdOvTmBox{
+  width: rem(514);
+  position: fixed;
+  z-index: 12;
+  left: rem(63);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 3px 3px rgba(255,255,255,.1);
+  background: #F0F0F0;
+  .selfTitle{
+    height: rem(72);
+    line-height: rem(72);
+    font-size: rem(24);
+    color: $prifontcolor;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    i{
+      color: RED;
+    }
+  }
+  .formCtrl{
+    height: rem(64);
+    width: rem(412);
+    margin: rem(34) auto;
+    line-height: rem(64);
+    border-radius: 3px;
+    display: block;
+  }
+  .inputPwd{
+    background: #fff;
+    font-size: rem(24);
+  }
+  .subBtn{
+    background: $primcolor;
+    font-size: rem(24);
+    border: none;
+    margin-bottom: 0;
+  }
+  .forgetPwd{
+    line-height: rem(70);
+    width: rem(412);
+    font-size: rem(22);
+    margin: 0 auto;
+  }
+}
+//头部小提示
+.topAlert{
+  opacity: 0;
+  height: 40px;
+  line-height: 40px;
+  background: rgba(0,0,0,.518);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top:-40px;
+  width: 100%;
+}
+.rechargeTips{
+  &.hide{
+    display: none;
+  }
+  margin: 0 auto;
+  width: rem(604);
+  margin-top: rem(20);
+  font-size: rem(22);
+  .redtips{
+    color: red;
+    text-align: left;
+  }
+  .ckyh{
+    color: $primcolor;
+    text-align: right;
+  }
+}
+//地区选择列表
+.provList{
+  transform: translateX(100%);
+  &.active{
+    transform: translateX(0);
+  }
+}
+.cityList{
+  transform: translateX(100%);
+  &.active{
+    transform: translateX(0);
+  }
+}
+.bankList{
+  transform: translateX(100%);
+  &.active{
+    transform: translateX(0);
+  }
+  .listItem{
+    img{
+      height: 18px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+}
+.areaList{
+  transition: all linear 300ms;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 13;
+  background: #fff;
+
+  .closeThis{
+    height: 40px;
+    line-height: 40px;
+    background: $primcolor;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 2px 2px rgba(0,0,0,.1);
+  }
+  .listDesc{
+    height: 40px;
+    line-height: 40px;
+    background: #eee;
+    color: #888;
+    font-size: 12px;
+    width: 100%;
+    text-indent: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+  }
+  .listWrap{
+    overflow: scroll;
+    padding-bottom: 100px;
+    .listItem{
+      text-indent: 25px;
+      font-size: 14px;
+      color: $prifontcolor;
+      padding: 8px 0;
+      .icon-right{
+        color: #ddd;
+        float: right;
+        margin-right: rem(30);
+      }
+      &:before {
+        position: absolute;
+        left: 20px;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        content: '';
+        height: 1px;
+        background: #eee;
+      }
+    }
+  }
+}
+
+//使用交易权选择
+.isUseTicket{
+  display: table;
+  margin-top: 0.4rem;
+  line-height: 0.72rem;
+  width: 94%;
+  margin: 0 auto;
+}
+.isUseTicket span{
+  line-height: 0.72rem;
+}
+.isUseTicket span.spanTitle{
+  font-size: 14px;
+  color: #222222;
+}
+.isUseTicket span.desc{
+  color: #999;
+  font-size: 12px;
+  margin-left: 10%;
+}
+.isUseTicket span.desc b{
+  color: #f94e4e !important;
+}
+.isUseTicket .useTicketSel{
+  height: 0.72rem;
+  border-radius: 0.36rem;
+  background: #bbb;
+  width: 12%;
+  transition: all linear 300ms;
+  -webkit-transition: all linear 300ms;
+}
+.isUseTicket .useTicketSel.seled{
+  background: #00a0e9
+}
+.isUseTicket .useTicketSel .selicon{
+  background: #fff;
+  height: 0.72rem;
+  width: 0.72rem;
+  border-radius: 50%;
+  /*left: 0;*/
+  top: 0;
+  transition: all linear 300ms;
+  -webkit-transition: all linear 300ms;
+}
+.isUseTicket .useTicketSel.seled .selicon{
+  right: 0;
+  transition: all linear 300ms;
+  -webkit-transition: all linear 300ms;
+}
+//账户信息
+.accountInfo{
+  display: flex;
+  margin-top: 0.3rem;
+}
+.accountInfo .moneyBag,.accountInfo .ticket{
+  flex: 1;
+  width: 50%;
+}
+.accountInfo p{
+  text-indent: 5px;
+  vertical-align: middle;
+  line-height: 0.65rem;
+  color: #666;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.moneyBag img{
+  margin-top: -0.1rem;
+}
+.ticket img{
+  margin-top: -0.06rem;
+}
+.accountInfo img{
+  height: 0.65rem;
+}
+.accountInfoWrap{
+  width: 7.2rem;
+}
+#accountInfo{
+  width: 100%;
+  height: rem(60);
+  .accountInfo{
+    margin-top: 0;
+  }
+  .per-top.recharge .text p{
+    font-size: rem(20) !important;
+  }
+}
+.tradBtnGro a.btnCtrl{
+  margin-top: 0;
+}
+#accountInfo .accountInfo{
+  img{
+    height: rem(28);
+  }
+}
+#accountInfo .accountInfo p{
+  font-size: rem(20);
+  text-indent: 0;
+}
+
+//提现确认弹出层
+.cashConfirmLayer{
+  transition: all linear 300ms;
+  &.hide{
+    transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+  }
+  width: 90%;
+  position: fixed;
+  z-index: 20;
+  left: 5%;
+  background: #eee;
+  .cashLayerTitle{
+    height: rem(80);
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    line-height: rem(80);
+    font-size: rem(24);
+    color: $prifontcolor;
+    i{
+      color: red;
+      font-size: rem(30);
+    }
+  }
+  .cashLayerCon{
+    width: 94%;
+    margin: rem(30) auto;
+    .cashTable{
+      .leftTD{
+        background: #FEEDDC;
+        color: $prifontcolor;
+      }
+      .rightTD{
+        color: $boldfontcolor;
+        background: #fff;
+      }
+      td{
+        padding: rem(10);
+        text-align: center;
+        font-size: rem(22);
+        border-bottom: 2px solid #eee;
+      }
+    }
+    .btnWrap{
+      width: 94%;
+      margin: rem(20) auto;
+      height: rem(60);
+      line-height: rem(60);
+      .cancelCash{
+        border-radius: 3px;
+        font-size: rem(24);
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        background: #fff;
+        color: #777;
+        width: 35%;
+      }
+      .oklCash{
+        border-radius: 3px;
+        font-size: rem(24);
+        box-sizing: border-box;
+        background: #FE8C1E;
+        width: 60%;
+        color: #fff;
+      }
+    }
+  }
+}
+.rechageSub .submitBtn{
+  margin-bottom: rem(30);
+}
+.xddjs{
+  &.hide{
+    display: none;
+  }
+  height: rem(110);
+  width: rem(110);
+  top: rem(20);
+  right: rem(20);
+  border-left: 1px solid #eee;
+  background: #fff;
+  line-height: rem(50);
+  font-size: rem(18);
+  .countDown{
+    font-size: rem(24);
+    color: $upcolor;
+    img{
+      height: rem(30);
+      margin-top: rem(-5);
+    }
+  }
+}
+.nowChiCang{
+  &.hide{
+    display: none;
+  }
+  width: 100%;
+  overflow-y: auto;
+  max-height: rem(140);
+  table{
+    width: 100%;
+    td{
+      width: 20%;
+      padding: rem(5);
+      text-align: center;
+      border: 1px solid #eee;
+      box-sizing: border-box;
+      font-size: rem(20);
+      .type.down{
+        color: #fff;
+        background: $downcolor;
+        border-radius: 3px;
+        padding: rem(0) rem(8);
+        &.up{
+          background: $upcolor;
+        }
+      }
+      .t{
+        color: #555;
+      }
+      .b{
+        color: #777;
+      }
+    }
+  }
+}
+.chain-ul{
+  border-bottom: 1px solid #eee;
+}
+.pullLoadTips{
+  height: rem(60);
+  line-height: rem(60);
+  background: #ddd;
+  color: #fff;
+  text-align: center;
+  font-size: rem(24);
+}
+.ajaxLayer{
+  background: rgba(0,0,0,0);
+  z-index: 200;
+}
+.decline.hide{
+  display: none;
+}
+.record .record-table .zhuan .state{
+  background: $upcolor;
+}
+.record .record-table .zhuan .money{
+  color: $upcolor;
+}
+.chain-money .block.hide{
+  display: none;
+}
+.chain-money .block .mk1.outmoney{
+  background: #6B75BF;
+}
